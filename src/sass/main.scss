@@ -6,9 +6,11 @@
 @import './base/container';
 
 // LAYOUT
-
-@import './layout/main-page';
+@import './layout/header-hero';
+@import './layout/main-content';
+@import './layout/pagination';
+@import './layout/footer';
 
 // COMPONENTS
 @import './components/modal-btn';
-@import './components/modal-windows';
+@import './components/modal-window';
