@@ -1,28 +1,39 @@
 const firstPage = 1;
-const currentPage = 15;
-const lastPage = 39;
+const currentPage = 4;
+const lastPage = 57;
 
-/* document
-  .querySelector('.pagination__container')
-  .insertAdjacentHTML('beforeend', `<a href = '#'><span class ="pagination__simple">&#8230`);
- */
 let paginationMarkup = '';
 
-for (let i = 1; i <= (lastPage <= 7 ? lastPage : 7); i++) {
-  console.log(i);
+if (lastPage <= 7)
+  for (let i = 1; i <= lastPage; i++) {
+    paginationMarkup += `<a href = "#page-${i}"><span `;
+    if (i === currentPage) paginationMarkup += `class = 'pagination__selected'>`;
+    else paginationMarkup += `class = 'pagination__simple'>`;
+    paginationMarkup += `${i}</span></a>`;
+  }
+
+if (lastPage >= 8) {
   paginationMarkup += `<a href = "#"><span `;
-  if (i === currentPage) {
-    paginationMarkup += `class = 'pagination__selected'>${i}`;
-  } else paginationMarkup += `class = 'pagination__simple'>${i}`;
+  if (currentPage === 1) paginationMarkup += `class = 'pagination__selected'>1</span></a>`;
+  else paginationMarkup += `class = 'pagination__simple'>1</span></a>`;
 
-  //if ((i === 2 || i===6) && lastPage > 8 ) paginationMarkup += `class = 'pagination__simple'>&#8230</span></a>`
-  //else
-  if (currentPage > 3 && i === 2 && lastPage > 8)
-    paginationMarkup += `class = 'pagination__simple'>&#8230`;
-  if (currentPage < lastPage - 2 && i === 6 /* && lastPage > 8 */)
-    paginationMarkup += `class = 'pagination__simple'>&#8230`;
+  for (let i = 1; i <= 5; i++) {
+    if ((currentPage > 4 && i === 1) || (currentPage <= lastPage - 4 && i === 5)) {
+      paginationMarkup += `<span class = 'pagination__simple'>&#8230</span>`;
+      continue;
+    }
 
-  paginationMarkup += `</span></a>`;
+    paginationMarkup += `<a href = "#page-${currentPage - 3 + i}"><span `;
+
+    if (i === 3 && currentPage != 1 && currentPage != lastPage)
+      paginationMarkup += `class = 'pagination__selected'>${currentPage - 3 + i}</span></a>`;
+    else if (currentPage - 3 + i < lastPage && currentPage - 3 + i > 1)
+      paginationMarkup += `class = 'pagination__simple'>${currentPage - 3 + i}</span></a>`;
+  }
+  paginationMarkup += `<a href = "#"><span `;
+  if (currentPage === lastPage)
+    paginationMarkup += `class = 'pagination__selected'>${lastPage}</span></a>`;
+  else paginationMarkup += `class = 'pagination__simple'>${lastPage}</span></a>`;
 }
 
 document.querySelector('.pagination__container').innerHTML = paginationMarkup;
