@@ -1,46 +1,55 @@
-<div class="cards__backdrop " data-modal> is-hidden
+<div class="cards__backdrop is-hidden" data-modal>
     <div class="modal">
-        <button class="close-button" data-modal-close>&#10006</button>
+        <button class="close-button" data-modal-close>
+            <svg class="modal__icon" width="29" height="19.33">
+                <use href="./img/symbol-defs.svg#icon-close"></use>
+            </svg>
+        </button>
         <img src="./img/pic.jpg" alt="small-logo" class="modal__small-logo">
         <div class="modal__list-position">
-            <img src="./img/poster.jpg" alt="card-poster" class="modal__card-poster" width="360">
-            <ul class="modal__description">
+            <img src="./img/poster.jpg" alt="card-poster" class="modal__card-poster">
+            <ul>
                 <li class="modal__list-info">
                     <h3 class="modal__item-title">INFO</h3>
-                    <p>Atlas Weekend is the largest music festival
+                    <p class="modal__item-text">Atlas Weekend is the largest music festival
                         in Ukraine.More than 200 artists will create
                         a proper music festival atmosphere on 10 stages</p>
                 </li>
                 <li class="modal__list-info">
                     <h3 class="modal__item-title">WHEN</h3>
-                    <p>2021-06-09 <br>20:00 (Kyiv/Ukraine)</p>
+                    <p class="modal__item-text">2021-06-09 <br>20:00 (Kyiv/Ukraine)</p>
                 </li>
                 <li class="modal__list-info">
                     <h3 class="modal__item-title">WHERE</h3>
-                    <p>Kyiv, Ukraine <br>VDNH</p>
+                    <p class="modal__item-text">Kyiv, Ukraine <br>VDNH</p>
                 </li>
                 <li class="modal__list-info">
                     <h3 class="modal__item-title">WHO</h3>
-                    <p>The Black Eyed Peas</p>
+                    <p class="modal__item-text">The Black Eyed Peas</p>
                 </li>
                 <li class="modal__list-info">
                     <h3 class="modal__item-title">PRICES</h3>
                     <ul>
-                        <li><span>
-                                <svg class="modal__icon" width="11" height="8">
-                                    <use href=""></use>
-                                </svg>
-                            </span>
-                            <p>Standart 300-500 UAH</p>
+                        <li>
+                            <p class="modal__price-text">
+                                <span>
+                                    <svg width="29" height="19.33">
+                                        <use href="./img/symbol-defs.svg#icon-ticket1"></use>
+                                    </svg>
+                                </span>
+                                Standart 300-500 UAH
+                            </p>
                             <button class="modal__list-btn">BUY TICKETS</button>
                         </li>
                         <li>
-                            <span>
-                                <svg class="modal__icon" width="11" height="8">
-                                    <use href=""></use>
-                                </svg>
-                            </span>
-                            <p>VIP 1000-1500 UAH</p>
+                            <p class="modal__price-text">
+                                <span>
+                                    <svg width="29" height="19.33">
+                                        <use href="./img/symbol-defs.svg#icon-ticket1"></use>
+                                    </svg>
+                                </span>
+                                VIP 1000-1500 UAH
+                            </p>
                             <button class="modal__list-btn">BUY TICKETS</button>
                         </li>
                     </ul>

@@ -15,14 +15,26 @@
     border-radius: 5px;
     width: 145px;
     height: 40px;
-    margin-top: 20px;
+    @media screen and (min-width: 480px) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    @media screen and (min-width: 768px) {
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
+    @media screen and (min-width: 1200px) {
+        margin-left: 60px;
+        margin-bottom: 31px;
+    }
 }
 
 .infoauthor-button {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 255px;
     height: 40px;
     color: #4C00FE;
     background-color: #FFF2FD;
@@ -30,6 +42,17 @@
     line-height: 1.25;
     border: 1px solid #4C00FE;
     border-radius: 5px;
-    margin-top: 45px;
-    margin-bottom: 62px;
+    @media screen and (min-width: 480px) {
+        width: 230px;
+        margin-bottom: 104px;
+    }
+    @media screen and (min-width: 768px) {
+        width: 255px;
+        margin-bottom: 56px;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 255px;
+        margin-bottom: 62px;
+        margin-top: 45px;
+    }
 }
