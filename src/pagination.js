@@ -1,22 +1,21 @@
-import { fetchPictures } from './fetchData.js';
+import { getDataServer } from './fetchData';
 
 const firstPage = 1;
 const currentPage = 4;
 const lastPage = 25;
 
-fetchPictures('metal').then(({ page }) => console.log(page));
+// getDataServer('metal').then(({ page }) => console.log(page));
 //responce:  {size: 20, totalElements: 1647, totalPages: 83, number: 0}
 
-
-/* fetchPictures('metal').then(( data ) => {
+/* getDataServer('metal').then(( data ) => {
     //console.log(data._embedded[0]);
     console.log(data)
 });
- */let paginationMarkup = '';
+ */ let paginationMarkup = '';
 
 if (lastPage <= 7)
-    for (let i = 1; i <= lastPage; i++) {
-//        fetchPictures('monatik').then(({ page }) => console.log(page));
+  for (let i = 1; i <= lastPage; i++) {
+    //        getDataServer('monatik').then(({ page }) => console.log(page));
     paginationMarkup += `<a href = "#page-${i}"><span `;
     if (i === currentPage) paginationMarkup += `class = 'pagination__selected'>`;
     else paginationMarkup += `class = 'pagination__simple'>`;
