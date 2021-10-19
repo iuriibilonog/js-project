@@ -7,6 +7,7 @@ const sendParam = {
   keyword: '',
   countryCode: '',
   totalPages: '',
+  id: '',
   page: 1,
 };
 
@@ -15,9 +16,11 @@ console.log(getDataServer('NBA', 'US'));
 export async function getDataServer(
   keyword = sendParam.keyword,
   countryCode = sendParam.countryCode,
+  id = sendParam.id,
 ) {
   sendParam.keyword = keyword;
   sendParam.countryCode = countryCode;
+  sendParam.id = id;
   const response = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json', {
     params: sendParam,
   });

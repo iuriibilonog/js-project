@@ -1,3 +1,5 @@
+import { getDataServer } from './fetchData';
+
 export const modalWindow = () => {
   const refs = {
     openModalBtn: document.querySelectorAll('[data-modal-open]'),
@@ -9,7 +11,8 @@ export const modalWindow = () => {
 
   refs.openModalBtn.forEach(item => {
     item.addEventListener('click', toggleModal);
-    console.log(item);
+    console.log(item.id);
+    getDataServer(item.id);
   });
   refs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal(e) {
