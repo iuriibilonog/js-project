@@ -1,0 +1,13 @@
+.footer-container {
+    padding-top: 67px;
+    padding-bottom: 27px;
+  
+    @media screen and (min-width: 768px) {
+      padding-top: 65px;
+      padding-bottom: 18px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      padding-top: 80px;
+    }
+  }
