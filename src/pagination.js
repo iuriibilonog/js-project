@@ -1,4 +1,5 @@
 import { getDataServer } from './fetchData';
+import { showData } from './showData';
 
 const showPagination = function (firstPage, currentPage, lastPage) {
   // getDataServer('metal').then(({ page }) => console.log(page));
@@ -48,8 +49,11 @@ const showPagination = function (firstPage, currentPage, lastPage) {
 
 document.querySelector('.pagination__container').addEventListener('click', e => console.log(e));
 
-fetchPictures('metal').then(({ page }) => {
-  showPagination(1, 2, page.totalPages);
+getDataServer('metal').then((data) => {
+  console.log(data);
+  if (data.page['totalElements'] === 0) console.log('empty');
+  else showData(data._embedded.events);
+  showPagination(1, 2, data.page.totalPages);
 });
 
 //showPagination(1, 1, 1);
