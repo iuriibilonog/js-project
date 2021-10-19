@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import './search-form';
 import { getDataServer } from './fetchData';
 import { showData } from './showData';
 import './events';
