@@ -10,7 +10,7 @@ const sendParam = {
   page: 1,
 };
 
-console.log(getDataServer('metal', 'US'));
+console.log(getDataServer('NBA', 'US'));
 
 export async function getDataServer(
   keyword = sendParam.keyword,
