@@ -2,6 +2,7 @@
   padding-left: 25px;
   padding-right: 15px;
   margin: 0 auto;
+  font-family: $main-font;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 320px;
@@ -49,8 +50,7 @@
 
 .events__item {
   position: relative;
-
-  animation: 200ms fadeIn;
+  animation: 800ms fadeIn;
   @keyframes fadeIn {
     0% {
       transform: scale(0, 0);
@@ -139,36 +139,37 @@
 
   .events__name {
     font-weight: 700;
-    color: var(--accent-color);
+    color: $accent-color;
     margin-bottom: 5px;
   }
 
   .events__date {
-    color: var(--main-text-color);
+    color: $main-text-color;
+    font-weight: 400;
     margin-bottom: 5px;
   }
 
   .events__location {
-    color: var(--main-text-color);
+    color: $main-text-color;
     font-weight: 600;
   }
 }
 
 body {
-    position: relative;
-    background-color: #0E0E0E;
-    background-repeat: no-repeat;
-    background-blend-mode: normal;
-    
+  position: relative;
+  background-color: #0e0e0e;
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
 }
 
 .ellipse6 {
-    position: absolute;
-    width: 334px;
-    height: 334px;
-    left: 30px;
-    top: 416px;
-    border-radius: 0 100% 0 0;
-    border: 1px solid #212121;
+  position: absolute;
+  width: 334px;
+  height: 334px;
+  left: 30px;
+  top: 416px;
+  border-radius: 0 100% 0 0;
+  border: 1px solid #212121;
+
 }
 
