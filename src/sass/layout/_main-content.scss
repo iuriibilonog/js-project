@@ -141,6 +141,14 @@
     font-weight: 700;
     color: var(--accent-color);
     margin-bottom: 5px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 22px;
+  }
+
+  .events__name:hover,
+  .events__name:focus {
+    height: auto;
   }
 
   .events__date {
@@ -155,20 +163,18 @@
 }
 
 body {
-    position: relative;
-    background-color: #0E0E0E;
-    background-repeat: no-repeat;
-    background-blend-mode: normal;
-    
+  position: relative;
+  background-color: #0e0e0e;
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
 }
 
 .ellipse6 {
-    position: absolute;
-    width: 334px;
-    height: 334px;
-    left: 30px;
-    top: 416px;
-    border-radius: 0 100% 0 0;
-    border: 1px solid #212121;
+  position: absolute;
+  width: 334px;
+  height: 334px;
+  left: 30px;
+  top: 416px;
+  border-radius: 0 100% 0 0;
+  border: 1px solid #212121;
 }
-
