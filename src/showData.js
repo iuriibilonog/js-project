@@ -1,8 +1,12 @@
-export function showData(data) {
-  let counter = 0;
-  const markUp = data.map(events => {
-    const markupOneCard = `<li class="events__item">
-        <a href="" class="link events__link" target="_blank" rel="noreferrer noopener" id = ${events.id}>
+// import { modalWindow } from './modal-window';
+
+export const showData = data =>
+  new Promise(res => {
+    let cur = 0;
+    let counter = 0;
+    const markUp = data.map(events => {
+      const markupOneCard = `<li class="events__item" data-modal-open>
+        <a href="" class="link events__link" id = ${events.id}>
            <div class="events__image-wrap" id = ${events.id}>
               <picture>
                  <img src="${events.images[3].url}" alt="" title="" class="events__image lazyload" id = ${events.id} />
@@ -25,11 +29,14 @@ export function showData(data) {
            </div>
         </a>
      </li>`;
-    setTimeout(() => {
-      document.querySelector('.events__list').insertAdjacentHTML('beforeend', markupOneCard);
-    }, ++counter * 150);
-  });
-  // .join('');
+      setTimeout(() => {
+        document.querySelector('.events__list').insertAdjacentHTML('beforeend', markupOneCard);
 
-  //   document.querySelector('.events__list').insertAdjacentHTML('beforeend', markUp);
-}
+        if (++cur >= data.length) res();
+      }, ++counter * 150);
+    });
+
+    // .join('');
+
+    //   document.querySelector('.events__list').insertAdjacentHTML('beforeend', markUp);
+  });
