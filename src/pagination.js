@@ -1,11 +1,10 @@
-import { fetchPictures } from './fetchData.js';
+import { getDataServer } from './fetchData';
 
 const showPagination = function (firstPage, currentPage, lastPage) {
-
-  fetchPictures('metal').then(({ page }) => console.log(page.totalPages));
+  // getDataServer('metal').then(({ page }) => console.log(page));
   //responce:  {size: 20, totalElements: 1647, totalPages: 83, number: 0}
 
-  /* fetchPictures('metal').then(( data ) => {
+  /* getDataServer('metal').then(( data ) => {
     //console.log(data._embedded[0]);
     console.log(data)
 });
@@ -47,17 +46,13 @@ const showPagination = function (firstPage, currentPage, lastPage) {
   document.querySelector('.pagination__container').innerHTML = paginationMarkup;
 };
 
-
-document.querySelector('.pagination__container').addEventListener('click', (e) =>  console.log(e) );
-
+document.querySelector('.pagination__container').addEventListener('click', e => console.log(e));
 
 fetchPictures('metal').then(({ page }) => {
-showPagination(1, 2, page.totalPages);
+  showPagination(1, 2, page.totalPages);
 });
 
 //showPagination(1, 1, 1);
-
-
 
 //showPagination(1, 7, 21);
 
