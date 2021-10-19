@@ -1,11 +1,11 @@
 export function showData(data) {
-    const markUp = data
-      .map((events => {
-        return `<li class="events__item">
+  const markUp = data
+    .map(events => {
+      return `<li class="events__item">
         <a href="" class="link events__link" target="_blank" rel="noreferrer noopener" id = ${events.id}>
            <div class="events__image-wrap" id = ${events.id}>
               <picture>
-                 <img src="${ events.images.[3].url}}" alt="" title="" class="events__image lazyload" id = ${events.id} />
+                 <img src="${events.images[3].url}" alt="" title="" class="events__image lazyload" id = ${events.id} />
               </picture>
            </div>
            <div class="events__descr" id = ${events.id}>
@@ -20,11 +20,13 @@ export function showData(data) {
                    </path>
 
                  </svg>
-              ${events._embedded.venues.[0].name} </p>
+                 ${events._embedded.venues[0].name}
+               </p>
            </div>
         </a>
      </li>`;
-      })
-      .join('');
+    })
+    .join('');
 
-    galleryNode.insertAdjacentHTML('beforeend', markUp);
+  document.querySelector('.events__list').insertAdjacentHTML('beforeend', markUp);
+}
