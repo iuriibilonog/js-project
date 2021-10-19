@@ -1,9 +1,7 @@
-import { fetchPictures } from './fetchData';
+import { getDataServer } from './fetchData';
+import { debounce } from 'lodash';
 
 import countries from './countries.json'
-
-
-const searchForm = document.querySelector('#search-form');
 
 
 function printOptions(data) {
@@ -11,23 +9,19 @@ function printOptions(data) {
     const markUp = data
         .map(item => {
             const { countryCode, countryName } = item;
-            return `<option data-code=${countryCode}>${countryName}</option>`;
+            return `<option value=${countryCode}>${countryName}</option>`;
         }).join('');
     optionList.insertAdjacentHTML('beforeend', markUp);
 }
 
 printOptions(countries);
 
-
-const searchInput = document.querySelector('#search-input');
-const searchCountry = document.querySelector('#search-country');
-
-
-searchForm.addEventListener('input', getData)
-
+document.querySelector('#search-form').addEventListener('input', getData)
 
 function getData() {
-    fetchPictures(searchInput.value, searchCountry.value)
+    const searchInput = document.querySelector('#search-input');
+    const searchCountry = document.querySelector('#search-country');
+    getDataServer(searchInput.value, searchCountry.value)
     console.log(searchInput.value)
     console.log(searchCountry.value)
     console.error('---')
