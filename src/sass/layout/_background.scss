@@ -1,10 +1,10 @@
 body {
     position: relative;
     background-color: #0e0e0e;
-    background-repeat: no-repeat;
-    background-size: auto, auto;
-    // background-blend-mode: normal;
-    // background-position: top;
+    background-size: contain, cover;
+    background-position: top, center;
+    background-repeat: no-repeat, no-repeat;
+    background-blend-mode: normal;
     background-image: url(./../img/bg_header/pic_mobile.jpg),
       url(./../img/noise_body/noise_body_mobile.png);
   
@@ -28,9 +28,6 @@ body {
     }
   
     @media screen and (min-width: 1280px) {
-        background-size: contain, cover;
-        background-position: top, center;
-        background-repeat: no-repeat, no-repeat;
       background-image: url(./../img/bg_header/pic_desktop.jpg),
         url(./../img/noise_body/noise_body.png);
     }
