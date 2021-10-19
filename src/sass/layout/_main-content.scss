@@ -141,6 +141,14 @@
     font-weight: 700;
     color: $accent-color;
     margin-bottom: 5px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 22px;
+  }
+
+  .events__name:hover,
+  .events__name:focus {
+    height: auto;
   }
 
   .events__date {
@@ -170,6 +178,4 @@ body {
   top: 416px;
   border-radius: 0 100% 0 0;
   border: 1px solid #212121;
-
 }
-
