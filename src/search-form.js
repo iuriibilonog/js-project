@@ -22,9 +22,9 @@ function getData() {
     const searchInput = document.querySelector('#search-input');
     const searchCountry = document.querySelector('#search-country');
     getDataServer(searchInput.value, searchCountry.value)
-    console.log(searchInput.value)
-    console.log(searchCountry.value)
-    console.error('---')
+    // console.log(searchInput.value)
+    // console.log(searchCountry.value)
+    // console.error('---')
 };
 
 
