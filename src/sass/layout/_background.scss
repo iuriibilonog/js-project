@@ -1,0 +1,195 @@
+body {
+    position: relative;
+    background-color: #0e0e0e;
+    background-repeat: no-repeat;
+    background-size: auto, auto;
+    // background-blend-mode: normal;
+    // background-position: top;
+    background-image: url(./../img/bg_header/pic_mobile.jpg),
+      url(./../img/noise_body/noise_body_mobile.png);
+  
+    @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+      screen and (min-resolution: 192dpi) and (max-width: 767px),
+      screen and (min-resolution: 24ppx) and (max-width: 767px) {
+      background-image: url(./../img/bg_header/pic@2x_mobile.jpg),
+        url(./../img/noise_body/noise_body@2x_mobile.png);
+    }
+  
+    @media screen and (min-width: 768px) {
+      background-image: url(./../img/bg_header/pic_tablet.jpg),
+        url(./../img/noise_body/noise_body_tablet.png);
+    }
+  
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+      screen and (min-resolution: 192dpi) and (min-width: 768px),
+      screen and (min-resolution: 24ppx) and (min-width: 768px) {
+      background-image: url(./../img/bg_header/pic@2x_tablet.jpg),
+        url(./../img/noise_body/noise_body@2x_tablet.png);
+    }
+  
+    @media screen and (min-width: 1280px) {
+        background-size: contain, cover;
+        background-position: top, center;
+        background-repeat: no-repeat, no-repeat;
+      background-image: url(./../img/bg_header/pic_desktop.jpg),
+        url(./../img/noise_body/noise_body.png);
+    }
+  
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+    screen and (min-resolution: 192dpi) and (min-width: 1280px),
+    screen and (min-resolution: 24ppx) and (min-width: 1280px) {
+        background-image: url(./../img/bg_header/pic@2x_desktop.jpg), 
+        url(./../img/noise_body/noise_body@2x.png);
+    }
+  }
+  
+  .ellipse-middle-left {
+  
+      @media screen and (min-width: 768px) {
+    position: absolute;
+    border-radius: 0 100% 0 0;
+    border: 1px solid #212121;
+      }
+  
+    @media screen and (min-width: 1200px) {
+      width: 334px;
+      height: 334px;
+      left: 30px;
+      top: 1585px;
+    }
+  }
+  
+  .ellipse-top-right {
+  
+      @media screen and (min-width: 768px) {
+          position: absolute;
+          border-radius: 100% 0 0 0;
+          border: 1px solid #212121;
+      }
+  
+      @media screen and (min-width: 1200px) {
+          width: 334px;
+          height: 334px;
+          right: 30px;
+          top: 854px;
+      }
+  }
+  
+    .ellipse-right-bottom {
+  
+      @media screen and (min-width: 768px) {
+          position: absolute;
+          border-radius: 100% 0 0 0;
+          border: 1px solid #212121;
+      }
+  
+      @media screen and (min-width: 1200px) {
+          width: 334px;
+          height: 334px;
+          right: 30px;
+          top: 1834px;
+      }
+    }
+  
+    .ellipse-left-bottom1 {
+  
+      @media screen and (min-width: 768px) {
+          position: absolute;
+          border: 1px solid #212121;
+          background: linear-gradient(rgba(196, 196, 196, 0.03), 
+          rgba(196, 196, 196, 0.03));
+      }
+  
+      @media screen and (min-width: 1200px) {
+          width: 136px;
+          height: 68px;
+          left: 47px;
+          top: 2266px;
+          border-top-left-radius: 68px;
+          border-top-right-radius: 68px;
+      }
+    }
+  
+    .ellipse-left-bottom2 {
+  
+      @media screen and (min-width: 768px) {
+          position: absolute;
+          border: 1px solid #212121;
+      }
+  
+      @media screen and (min-width: 1200px) {
+          width: 216px;
+          height: 108px;
+          left: 7px;
+          top: 2226px;
+          border-top-left-radius: 108px;
+          border-top-right-radius: 108px;
+      }
+   }
+  
+    .ellips-top-left1 {
+  
+      @media screen and (min-width: 768px) {
+          position: absolute;
+          border: 1px solid #212121;
+          background: linear-gradient(rgba(196, 196, 196, 0.03), 
+          rgba(196, 196, 196, 0.03));
+      }
+  
+      @media screen and (min-width: 1200px) {
+          width: 136px;
+          height: 136px;
+          left: 47px;
+          top: 774px;
+          border-radius: 50%;
+      }
+    }
+  
+    .ellips-top-left2 {
+  
+      @media screen and (min-width: 768px) {
+          position: absolute;
+          border-radius: 50%;
+          border: 1px solid #212121;
+      }
+  
+      @media screen and (min-width: 1200px) {
+          width: 216px;
+          height: 216px;
+          left: 7px;
+          top: 734px;
+      }
+    }
+  
+    .ellipse-middle-right1 {
+  
+      @media screen and (min-width: 768px) {
+          border: 1px solid #212121;
+          background: linear-gradient(rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0.03));
+          border-radius: 50%;
+      }
+  
+      @media screen and (min-width: 1200px) {
+          position: absolute;
+          width: 136px;
+          height: 136px;
+          right: 47px;
+          top: 1412px;
+      }
+    }
+  
+    .ellipse-middle-right2 {
+  
+      @media screen and (min-width: 768px) {
+          position: absolute;
+          border-radius: 50%;
+          border: 1px solid #212121;
+      }
+  
+      @media screen and (min-width: 1200px) {
+          width: 216px;
+          height: 216px;
+          right: 7px;
+          top: 1372px;
+      }
+    }
