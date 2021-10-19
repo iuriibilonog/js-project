@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.pagination__container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.pagination__selected {
+  display: block;
+  padding-top: 4px;
+  color: #dc56c5;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #dc56c5;
+  box-sizing: border-box;
+  border-radius: 10px 0px;
+}
+
+.pagination__simple {
+  display: block;
+  padding-top: 5px;
+  color: white;
+  width: 30px;
+  height: 30px;
+}
