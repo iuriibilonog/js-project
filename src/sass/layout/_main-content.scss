@@ -1,193 +1,182 @@
+.container {
+  padding-left: 25px;
+  padding-right: 15px;
+  margin: 0 auto;
+  font-family: $main-font;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 320px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 768px;
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-left: 175px;
+    padding-right: 175px;
+  }
+}
+
+.events {
+  //   margin-top: -30px; проверить на макете куда будет идти верстка
+  position: relative;
+  z-index: 30;
+}
+
+.events__list {
+  display: flex;
+  flex-wrap: wrap;
+  //   flex-basis: calc(50% - 14px);
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-top: -39px;
+    margin-left: -14px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: -58px;
+    margin-left: -27px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: -63px;
+    margin-left: -70px;
+  }
+}
+
+.events__item {
+  position: relative;
+  animation: 800ms fadeIn;
+  @keyframes fadeIn {
+    0% {
+      transform: scale(0, 0);
+      transition: transform 2000ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    box-sizing: border-box;
+    border-radius: 50px 0px;
+    pointer-events: none;
+
+    @media screen and (min-width: 768px) {
+      width: 153px;
+      height: 143px;
+      top: -14px;
+      right: -14px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 110px;
+      height: 100px;
+      top: -10px;
+      right: -10px;
+    }
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-top: 39px;
+    margin-left: 14px;
+    flex-basis: calc(50% - 14px);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 58px;
+    margin-left: 27px;
+    flex-basis: calc(100% / 3 - 27px);
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 63px;
+    margin-left: 70px;
+    flex-basis: calc(100% / 4 - 70px);
+  }
+  .events__image-wrap {
+    background-color: #cabbbb;
+    border-radius: 50px 0px;
+    overflow: hidden;
+
+    @media screen and (min-width: 320px) {
+      height: 161px;
+      &:hover,
+      &:focus {
+        box-shadow: 2px 2px 8px 4px rgba(220, 86, 197, 0.5);
+      }
+    }
+    @media screen and (min-width: 768px) {
+      height: 227px;
+      &:hover,
+      &:focus {
+        box-shadow: 3px 3px 8px 5px rgba(220, 86, 197, 0.5);
+      }
+    }
+  }
+  .events__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .events__descr {
+    text-align: center;
+    padding-top: 5px;
+  }
+
+  .events__name {
+    font-weight: 700;
+    color: $accent-color;
+    margin-bottom: 5px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 22px;
+  }
+
+  .events__name:hover,
+  .events__name:focus {
+    height: auto;
+  }
+
+  .events__date {
+    color: $main-text-color;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+
+  .events__location {
+    color: $main-text-color;
+    font-weight: 600;
+  }
+}
+
 body {
   position: relative;
   background-color: #0e0e0e;
   background-repeat: no-repeat;
-  background-size: cover, cover;
-  // background-blend-mode: normal;
-  // background-position: top;
-  background-image: url(./../img/bg_header/pic_mobile.jpg),
-    url(./../img/noise_body/noise_body_mobile.png);
-
-  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-    screen and (min-resolution: 192dpi) and (max-width: 767px),
-    screen and (min-resolution: 24ppx) and (max-width: 767px) {
-    background-image: url(./../img/bg_header/pic@2x_mobile.jpg),
-      url(./../img/noise_body/noise_body@2x_mobile.png);
-  }
-
-  @media screen and (min-width: 768px) {
-    background-image: url(./../img/bg_header/pic_tablet.jpg),
-      url(./../img/noise_body/noise_body_tablet.png);
-  }
-
-  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-    screen and (min-resolution: 192dpi) and (min-width: 768px),
-    screen and (min-resolution: 24ppx) and (min-width: 768px) {
-    background-image: url(./../img/bg_header/pic@2x_tablet.jpg),
-      url(./../img/noise_body/noise_body@2x_tablet.png);
-  }
-
-  @media screen and (min-width: 1200px) {
-    max-width: 1280px;
-    background-image: url(./../img/bg_header/pic_desktop.jpg),
-      url(./../img/noise_body/noise_body.png);
-  }
-
-  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
-  screen and (min-resolution: 192dpi) and (min-width: 1200px),
-  screen and (min-resolution: 24ppx) and (min-width: 1200px) {
-      background-image: url(./../img/bg_header/pic@2x_desktop.jpg), 
-      url(./../img/noise_body/noise_body@2x.png);
-  }
+  background-blend-mode: normal;
 }
 
-.ellipse-middle-left {
-
-    @media screen and (min-width: 768px) {
+.ellipse6 {
   position: absolute;
+  width: 334px;
+  height: 334px;
+  left: 30px;
+  top: 416px;
   border-radius: 0 100% 0 0;
   border: 1px solid #212121;
-    }
-
-  @media screen and (min-width: 1200px) {
-    width: 334px;
-    height: 334px;
-    left: 30px;
-    top: 1585px;
-  }
 }
 
-.ellipse-top-right {
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        border-radius: 100% 0 0 0;
-        border: 1px solid #212121;
-    }
-
-    @media screen and (min-width: 1200px) {
-        width: 334px;
-        height: 334px;
-        right: 30px;
-        top: 854px;
-    }
-}
-
-  .ellipse-right-bottom {
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        border-radius: 100% 0 0 0;
-        border: 1px solid #212121;
-    }
-
-    @media screen and (min-width: 1200px) {
-        width: 334px;
-        height: 334px;
-        right: 30px;
-        top: 1834px;
-    }
-  }
-
-  .ellipse-left-bottom1 {
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        border: 1px solid #212121;
-        background: linear-gradient(rgba(196, 196, 196, 0.03), 
-        rgba(196, 196, 196, 0.03));
-    }
-
-    @media screen and (min-width: 1200px) {
-        width: 136px;
-        height: 68px;
-        left: 47px;
-        top: 2266px;
-        border-top-left-radius: 68px;
-        border-top-right-radius: 68px;
-    }
-  }
-
-  .ellipse-left-bottom2 {
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        border: 1px solid #212121;
-    }
-
-    @media screen and (min-width: 1200px) {
-        width: 216px;
-        height: 108px;
-        left: 7px;
-        top: 2226px;
-        border-top-left-radius: 108px;
-        border-top-right-radius: 108px;
-    }
- }
-
-  .ellips-top-left1 {
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        border: 1px solid #212121;
-        background: linear-gradient(rgba(196, 196, 196, 0.03), 
-        rgba(196, 196, 196, 0.03));
-    }
-
-    @media screen and (min-width: 1200px) {
-        width: 136px;
-        height: 136px;
-        left: 47px;
-        top: 774px;
-        border-radius: 50%;
-    }
-  }
-
-  .ellips-top-left2 {
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        border-radius: 50%;
-        border: 1px solid #212121;
-    }
-
-    @media screen and (min-width: 1200px) {
-        width: 216px;
-        height: 216px;
-        left: 7px;
-        top: 734px;
-    }
-  }
-
-  .ellipse-middle-right1 {
-
-    @media screen and (min-width: 768px) {
-        border: 1px solid #212121;
-        background: linear-gradient(rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0.03));
-        border-radius: 50%;
-    }
-
-    @media screen and (min-width: 1200px) {
-        position: absolute;
-        width: 136px;
-        height: 136px;
-        right: 47px;
-        top: 1412px;
-    }
-  }
-
-  .ellipse-middle-right2 {
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        border-radius: 50%;
-        border: 1px solid #212121;
-    }
-
-    @media screen and (min-width: 1200px) {
-        width: 216px;
-        height: 216px;
-        right: 7px;
-        top: 1372px;
-    }
-  }

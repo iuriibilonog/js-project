@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "axios": "^0.23.0",
+    "lazysizes": "^5.3.2",
     "notiflix": "^3.1.0"
   }
 }
