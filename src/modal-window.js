@@ -11,12 +11,14 @@ export const modalWindow = () => {
 
   refs.openModalBtn.forEach(item => {
     item.addEventListener('click', toggleModal);
-    console.log(item.id);
-    getDataServer(item.id);
   });
   refs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal(e) {
     e.preventDefault();
+    console.log(item.id);
+    const searchInput = document.querySelector('#search-input');
+    const searchCountry = document.querySelector('#search-country');
+    getDataServer(searchInput.value, searchCountry.value, item.id);
     refs.modal.classList.toggle('is-hidden');
   }
 };
