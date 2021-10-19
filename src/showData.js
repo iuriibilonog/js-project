@@ -1,7 +1,7 @@
 export function showData(data) {
-  const markUp = data
-    .map(events => {
-      return `<li class="events__item">
+  let counter = 0;
+  const markUp = data.map(events => {
+    const markupOneCard = `<li class="events__item">
         <a href="" class="link events__link" target="_blank" rel="noreferrer noopener" id = ${events.id}>
            <div class="events__image-wrap" id = ${events.id}>
               <picture>
@@ -25,8 +25,11 @@ export function showData(data) {
            </div>
         </a>
      </li>`;
-    })
-    .join('');
+    setTimeout(() => {
+      document.querySelector('.events__list').insertAdjacentHTML('beforeend', markupOneCard);
+    }, ++counter * 150);
+  });
+  // .join('');
 
-  document.querySelector('.events__list').insertAdjacentHTML('beforeend', markUp);
+  //   document.querySelector('.events__list').insertAdjacentHTML('beforeend', markUp);
 }
