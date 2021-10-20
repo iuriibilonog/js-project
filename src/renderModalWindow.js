@@ -1,15 +1,17 @@
-export const showModal = data => {
-  const markupForModal = data.map(events => {
-    const markupOneModal = `<div class="cards__backdrop is-hidden" data-modal>
+import symbolDevs from './img/symbol-defs.svg';
+
+export const showModal = events => {
+  console.log(events.images[0].url);
+  const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
         <button class="close-button" data-modal-close>
             <svg class="modal__icon" width="29" height="19.33">
-                <use href="./img/symbol-defs.svg#icon-close"></use>
+                <use href="${symbolDevs}#icon-close"></use>
             </svg>
         </button>
-        <img id =${events.id} src="${events._embedded.events.images[0].url}" alt="small-logo" class="modal__small-logo">
+        <img id =${events.id} src="${events.images[0].url}" alt="small-logo" class="modal__small-logo">
         <div class="modal__list-position">
-            <img id =${events.id} src="${events._embedded.events.images[0].url} alt="card-poster" class="modal__card-poster">
+            <img id =${events.id} src="${events.images[0].url}" alt="card-poster" class="modal__card-poster">
             <ul>
                 <li class="modal__list-info">
                     <h3 class="modal__item-title">INFO</h3>
@@ -37,7 +39,7 @@ export const showModal = data => {
                                         <use href="./img/symbol-defs.svg#icon-ticket1"></use>
                                     </svg>
                                 </span>
-                                ${events._embedded.priceRanges.type} ${events._embedded.priceRanges.min} - ${events._embedded.priceRanges.max}  ${events._embedded.priceRanges.currency}
+                                ${events.priceRanges[0].type} ${events.priceRanges[0].min} - ${events.priceRanges[0].max}  ${events.priceRanges[0].currency}
                                
                             </p>
                             <button class="modal__list-btn">BUY TICKETS</button>
@@ -48,5 +50,6 @@ export const showModal = data => {
         </div>
         <button type="button" class="button infoauthor-button">MORE FROM THIS AUTHOR</button>
     </div>`;
-  });
+
+  document.querySelector('body').insertAdjacentHTML('beforeend', markupOneModal);
 };
