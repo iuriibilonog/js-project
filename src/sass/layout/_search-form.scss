@@ -1,8 +1,26 @@
 #search-form {
-    // position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 130px;
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+@media screen and(min-width: 600px) {
+    #search-form {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 52px;
+    }
+}
+
+@media screen and(min-width: 768px) {
+    #search-form {
+        margin-bottom: 123px;
+    }
+}
+
+@media screen and(min-width: 768px) {
+    #search-form {
+        margin-bottom: 133px;
+    }
 }
 
 .search-input {
@@ -10,13 +28,39 @@
     font-size: 16px;
     border-radius: 20px;
     border: 0px transparent;
-    color: #939393;
-    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+    // &-internal-autofill-selected {
+    //     background-color: rgb(170, 39, 39);
+    // }
+    &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    }
 }
 
 .search-form-wrapper {
+    display: flex;
     position: relative;
-    &:not(:last-child) {
-        margin-right: 30px;
+    justify-content: center;
+    max-height: 40px;
+    &:not(:nth-last-child(-n + 2)) {
+        margin-bottom: 25px;
+    };
+};
+
+@media screen and (min-width: 600px) {
+    .search-form-wrapper {
+        &:not(:nth-last-child(-n + 2)) {
+            margin-right: 30px;
+        };
+    };
+};
+
+.countries-list {
+    // background-color: rgb(64, 224, 99);
+    
+    &select {
+        color: rgb(145, 34, 34);
     }
-}
+};
