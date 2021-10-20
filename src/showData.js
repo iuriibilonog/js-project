@@ -4,7 +4,6 @@ import sprite from './img/sprite.svg';
 
 export const showData = data =>
   new Promise(res => {
-    console.log('kutgyufrd');
     let cur = 0;
     let counter = 0;
     const markUp = data.map(events => {
@@ -12,7 +11,7 @@ export const showData = data =>
         <a href="" class="link events__link">
            <div class="events__image-wrap">
               <picture>
-                 <img loading='lazy' data-src="${events.images[3].url}" alt="" title="" class="events__image lazyload"  />
+                 <img src="${events.images[3].url}" alt="" title="" class="events__image"  />
               </picture>
            </div>
            <div class="events__descr" >
