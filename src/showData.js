@@ -1,10 +1,4 @@
 import sprite from './img/sprite.svg';
-export function showData(data) {
-  let counter = 0;
-  const markUp = data.map(events => {
-    const markupOneCard = `<li class="events__item">
-        <a href="" class="link events__link" id = ${events.id}>
-           <div class="events__image-wrap">
 
 // import { modalWindow } from './modal-window';
 
@@ -35,18 +29,12 @@ export const showData = data =>
         </a>
      </li>`;
 
-    setTimeout(() => {
-      if (events._embedded.venues[0].name) {
-        document.querySelector('.events__list').insertAdjacentHTML('beforeend', markupOneCard);
-      } else {
-        events._embedded.venues[0].address.line1;
-      }
-    }, ++counter * 150);
-  });
-  
-
-
-   
-
-    //   document.querySelector('.events__list').insertAdjacentHTML('beforeend', markUp);
+      setTimeout(() => {
+        if (events._embedded.venues[0].name) {
+          document.querySelector('.events__list').insertAdjacentHTML('beforeend', markupOneCard);
+        } else {
+          events._embedded.venues[0].address.line1;
+        }
+      }, ++counter * 150);
+    });
   });
