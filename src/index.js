@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import './search-form';
 import './preload';
-import { getDataServer } from './fetchData';
+import { getDataServer, firstQueryDataServer } from './fetchData';
 import './events';
 
 import './modal-window';
@@ -10,5 +10,9 @@ import './modal-window';
 import './scrollUp';
 
 window.onload = async function () {
-  const data = await getDataServer('', '', '');
+
+  const countryCode = await firstQueryDataServer();
+  console.log(countryCode.data.countryCode);
+  const data = await getDataServer('', countryCode.data.countryCode, '');
+
 };
