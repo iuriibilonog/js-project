@@ -12,7 +12,7 @@ export const sendParam = {
 export async function getDataServer(keyword, countryCode, page) {
   keyword === '' ? (delete sendParam.keyword) : (sendParam.keyword = keyword);
   countryCode === '' ? (delete sendParam.countryCode) : (sendParam.countryCode = countryCode);
-  page === '' ? (delete sendParam.page) : (sendParam.page = page);
+  page === '' ? delete sendParam.page : (page >= 50 ? (sendParam.page = 49): (sendParam.page = page));
 
   console.log('SendParam: ', sendParam);
 

@@ -13,5 +13,5 @@ window.onload = async function () {
   console.log(data);
   await showData(data._embedded.events);
   modalWindow();
-  showPagination(1, +data.page.number, +data.page.totalPages);
+  showPagination(1, +data.page.number, +data.page.totalPages >= 50 ? 49 : +data.page.totalPages);
 };
