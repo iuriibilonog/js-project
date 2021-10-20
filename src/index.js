@@ -12,10 +12,10 @@ import './modal-window';
 import './scrollUp';
 
 window.onload = async function () {
-  const data = await getDataServer('rock', '', '3');
+  const data = await getDataServer('rock', '', '');
   console.log(data);
   await showData(data._embedded.events);
-/*   (() => {
+  /*   (() => {
     if ('loading' in HTMLImageElement.prototype) {
       const lazyLoadImg = document.querySelectorAll('.lazyload');
       lazyLoadImg.forEach(img => (img.src = img.dataset.src));
@@ -25,6 +25,10 @@ window.onload = async function () {
       // <img data-src="image.jpg" class="lazyload" />;
     }
   })();
- */  modalWindow();
-  showPagination(1, +data.page.number, +data.page.totalPages >= 50 ? 49 : +data.page.totalPages);
+ */ modalWindow();
+  showPagination(
+    1,
+    +data.page.number + 1,
+    +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
+  );
 };
