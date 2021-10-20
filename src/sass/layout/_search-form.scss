@@ -1,20 +1,20 @@
 #search-form {
-    text-align: center;
-    margin-bottom: 52px;
+  text-align: center;
+  margin-bottom: 52px;
 }
 
 @media screen and(min-width: 768px) {
-    #search-form {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 123px;
-    }
+  #search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 108px;
+  }
 }
 
 @media screen and(min-width: 1280px) {
-    #search-form {
-        margin-bottom: 133px;
-    }
+  #search-form {
+    margin-bottom: 133px;
+  }
 }
 
 .search-input {
@@ -31,45 +31,52 @@
     // }
     &::placeholder {
     color: rgba(255, 255, 255, 0.5);
-    }
+  }
 }
 
 .search-form-wrapper {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    max-height: 40px;
-};
+  display: flex;
+  position: relative;
+  justify-content: center;
+  max-height: 40px;
+}
 
 @media screen and (max-width: 767px) {
-    .search-form-wrapper {
-        &:not(:nth-last-child(-n + 2)) {
-            margin-bottom: 25px;
-        };
-    };
-};
+  .search-form-wrapper {
+    &:not(:nth-last-child(-n + 2)) {
+      margin-bottom: 25px;
+    }
+  }
+}
 
 @media screen and (min-width: 768px) {
-    .search-form-wrapper {
-        &:not(:nth-last-child(-n + 2)) {
-            margin-right: 30px;
-        };
-    };
-};
+  .search-form-wrapper {
+    &:not(:nth-last-child(-n + 2)) {
+      margin-right: 30px;
+    }
+  }
+}
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-    .search-form-wrapper {
-        &:not(:nth-last-child(-n + 2)) {
-            margin-right: 30px;
-        };
-    };
-};
-
+  .search-form-wrapper {
+    &:not(:nth-last-child(-n + 2)) {
+      margin-right: 30px;
+    }
+  }
+}
 
 .countries-list {
+
+  // background-color: rgb(64, 224, 99);
+
+  &select {
+    color: rgb(145, 34, 34);
+  }
+}
     // background-color: rgb(64, 224, 99);
     
     &select {
         color: rgb(145, 34, 34);
     }
 };
+
