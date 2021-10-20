@@ -6,6 +6,9 @@ import './events';
 import './pagination';
 // import './modal-window';
 
+//add scroll to top button
+import './scrollUp';
+
 window.onload = async function () {
   const data = await fetchPictures();
   console.log(data);

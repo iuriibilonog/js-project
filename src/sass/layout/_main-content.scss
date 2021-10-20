@@ -152,6 +152,10 @@
   .events__location {
     color: $main-text-color;
     font-weight: 600;
+
+    .modal__icon {
+      margin-bottom: -3px;
+    }
   }
 }
 
@@ -170,6 +174,4 @@ body {
   top: 416px;
   border-radius: 0 100% 0 0;
   border: 1px solid #212121;
-
 }
-
