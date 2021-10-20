@@ -1,8 +1,11 @@
 import { getDataServer } from './fetchData';
+import { showData } from './showData';
 import config from './config.json';
 import axios from 'axios';
 import { showModal } from './renderModalWindow';
+import { showPagination } from './pagination';
 import { showPreloader } from './preload';
+
 
 export async function getEventDetails(id) {
   const promisePreload = showPreloader();
@@ -30,6 +33,8 @@ document.querySelector('.events__list').addEventListener('click', async e => {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
     backdropNode: document.querySelector('.cards__backdrop'),
+    moreFromAuthorBtn: document.querySelector('.infoauthor-button'),
+    eventsNode: document.querySelector('.events__list'),
   };
 
   refs.closeModalBtn.addEventListener('click', e => {
@@ -41,5 +46,15 @@ document.querySelector('.events__list').addEventListener('click', async e => {
   refs.backdropNode.addEventListener('click', e => {
     // e.preventDefault();
     if (e.target.dataset.modal === '') refs.modal.classList.add('is-hidden');
+  });
+
+  refs.moreFromAuthorBtn.addEventListener('click', async e => {
+    refs.eventsNode.innerHTML = '';
+    refs.modal.classList.add('is-hidden');
+    console.log(data.name);
+    // console.log(refs.eventsNode);
+    const authorData = await getDataServer(data.name);
+    console.log(authorData);
+    await showData(authorData._embedded.events);
   });
 });
