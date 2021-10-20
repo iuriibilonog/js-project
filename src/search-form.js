@@ -45,17 +45,20 @@ function getCards() {
   const countryValidator = !searchCountryOption?.textContent
     ? ''
     : searchCountryOption?.textContent;
-  const promisePreload = showPreloader();
+ const promisePreload = showPreloader();
   getDataServer(keywordValidator, countryValidator)
     .then(data => {
-      document.querySelector('.events__list').innerHTML = '';
-      showData(data._embedded.events);
-      showPagination(
-        1,
-        +data.page.number + 1,
-        +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
-      );
-      return promisePreload;
+/*       if (data._embedded) {
+        document.querySelector('.events__list').innerHTML = '';
+        showData(data._embedded.events);
+        showPagination(
+          1,
+          +data.page.number + 1,
+          +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
+        );
+        console.log('11111');
+      }
+ */      return promisePreload;
     })
     .then(preloadNode => preloadNode.remove());
 }
