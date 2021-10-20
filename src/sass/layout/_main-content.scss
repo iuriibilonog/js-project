@@ -160,8 +160,28 @@
   .events__location {
     color: $main-text-color;
     font-weight: 600;
+
+    .modal__icon {
+      margin-bottom: -3px;
+    }
   }
 }
 
 
+body {
+  position: relative;
+  background-color: #0e0e0e;
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
+}
+
+.ellipse6 {
+  position: absolute;
+  width: 334px;
+  height: 334px;
+  left: 30px;
+  top: 416px;
+  border-radius: 0 100% 0 0;
+  border: 1px solid #212121;
+}
 
