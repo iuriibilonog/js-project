@@ -24,17 +24,17 @@ function getCards() {
   const searchCountryOption = document.querySelector(`#choose-country option[value="${searchCountry.value}"]`);
   // console.log(searchCountryOption.textContent)
 
-  getDataServer(searchInput.value);
+  // getDataServer(searchInput.value);
 
   const countryCodeCheck = countries.some((item) => item.countryCode === searchCountryOption.textContent)
-  console.log(countryCodeCheck)
+  // console.log(searchCountryOption.textContent)
 
-  if (countryCodeCheck) {
-    // console.log(countryCodeCheck)
-    getDataServer(searchCountryOption.textContent);
-  }
+  // if (countryCodeCheck || !searchCountryOption.textContent) {
+  //   // console.log(countryCodeCheck)
+  //   // getDataServer(searchInput.value, searchCountryOption.textContent);
+  // }
 
-
+  getDataServer(!searchInput.value ? '' : searchInput.value, !searchCountryOption.textContent ? '' : searchCountryOption.textContent);
 
 
   // console.log(searchInput.value)
