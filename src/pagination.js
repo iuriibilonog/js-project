@@ -53,6 +53,11 @@ document.querySelector('.pagination__container').addEventListener('click', e => 
   if (e.target.tagName === 'SPAN' && e.target.textContent != '…')
     getDataServer(sendParam.keyword, sendParam.countryCode, +e.target.textContent - 1).then(
       data => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+
         document.querySelector('.events__list').innerHTML = '';
         showPagination(
           1,

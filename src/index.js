@@ -12,7 +12,8 @@ import './modal-window';
 import './scrollUp';
 
 window.onload = async function () {
-  const data = await getDataServer('rock', '', '3');
+  const data = await getDataServer('', '', '');
+
   await showData(data._embedded.events);
   /*   (() => {
     if ('loading' in HTMLImageElement.prototype) {
@@ -24,6 +25,12 @@ window.onload = async function () {
       // <img data-src="image.jpg" class="lazyload" />;
     }
   })();
- */
-  showPagination(1, +data.page.number, +data.page.totalPages >= 50 ? 49 : +data.page.totalPages);
+  
+ */ 
+  showPagination(
+    1,
+    +data.page.number + 1,
+    +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
+  );
+
 };

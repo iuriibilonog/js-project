@@ -23,7 +23,7 @@
 
 .logo__block {
   position: absolute;
-  top: -40px;
+  top: -80px;
   left: 0;
   width: 107px;
   height: 90px;
@@ -32,6 +32,7 @@
   border-bottom-right-radius: 90%;
 
   @media screen and (min-width: 768px) {
+    top: -40px;
     width: 179px;
     height: 151px;
   }
@@ -45,7 +46,7 @@
 .logo {
   padding-left: 23px;
   padding-top: 23px;
-  width: 60px;
+  width: 80px;
 
   @media screen and (min-width: 768px) {
     padding-left: 40px;
