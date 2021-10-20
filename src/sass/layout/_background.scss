@@ -1,192 +1,297 @@
 body {
-    position: relative;
-    background-color: #0e0e0e;
-    background-size: contain, cover;
-    background-position: top, center;
-    background-repeat: no-repeat, no-repeat;
-    background-blend-mode: normal;
-    background-image: url(./../img/bg_header/pic_mobile.jpg),
-      url(./../img/noise_body/noise_body_mobile.png);
-  
-    @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-      screen and (min-resolution: 192dpi) and (max-width: 767px),
-      screen and (min-resolution: 24ppx) and (max-width: 767px) {
-      background-image: url(./../img/bg_header/pic@2x_mobile.jpg),
-        url(./../img/noise_body/noise_body@2x_mobile.png);
-    }
-  
-    @media screen and (min-width: 768px) {
-      background-image: url(./../img/bg_header/pic_tablet.jpg),
-        url(./../img/noise_body/noise_body_tablet.png);
-    }
-  
-    @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-      screen and (min-resolution: 192dpi) and (min-width: 768px),
-      screen and (min-resolution: 24ppx) and (min-width: 768px) {
-      background-image: url(./../img/bg_header/pic@2x_tablet.jpg),
-        url(./../img/noise_body/noise_body@2x_tablet.png);
-    }
-  
-    @media screen and (min-width: 1280px) {
-      background-image: url(./../img/bg_header/pic_desktop.jpg),
-        url(./../img/noise_body/noise_body.png);
-    }
-  
-    @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  position: relative;
+  background-color: #0e0e0e;
+  background-size: contain, cover;
+  background-position: top, center;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: normal;
+  background-image: url(./../img/bg_header/pic_mobile.jpg),
+    url(./../img/noise_body/noise_body_mobile.png);
+
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+    screen and (min-resolution: 192dpi) and (max-width: 767px),
+    screen and (min-resolution: 24ppx) and (max-width: 767px) {
+    background-image: url(./../img/bg_header/pic@2x_mobile.jpg),
+      url(./../img/noise_body/noise_body@2x_mobile.png);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(./../img/bg_header/pic_tablet.jpg),
+      url(./../img/noise_body/noise_body_tablet.png);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 24ppx) and (min-width: 768px) {
+    background-image: url(./../img/bg_header/pic@2x_tablet.jpg),
+      url(./../img/noise_body/noise_body@2x_tablet.png);
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(./../img/bg_header/pic_desktop.jpg),
+      url(./../img/noise_body/noise_body.png);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
     screen and (min-resolution: 192dpi) and (min-width: 1280px),
     screen and (min-resolution: 24ppx) and (min-width: 1280px) {
-        background-image: url(./../img/bg_header/pic@2x_desktop.jpg), 
-        url(./../img/noise_body/noise_body@2x.png);
-    }
+    background-image: url(./../img/bg_header/pic@2x_desktop.jpg),
+      url(./../img/noise_body/noise_body@2x.png);
   }
-  
-  .ellipse-middle-left {
-  
-      @media screen and (min-width: 768px) {
+}
+
+.ellipse-middle-left {
+  @media screen and (min-width: 768px) {
+    width: 238px;
+    height: 238px;
+    left: 26px;
+    top: 1514px;
     position: absolute;
     border-radius: 0 100% 0 0;
     border: 1px solid #212121;
-      }
-  
-    @media screen and (min-width: 1200px) {
-      width: 334px;
-      height: 334px;
-      left: 30px;
-      top: 1585px;
-    }
   }
-  
-  .ellipse-top-right {
-  
-      @media screen and (min-width: 768px) {
-          position: absolute;
-          border-radius: 100% 0 0 0;
-          border: 1px solid #212121;
-      }
-  
-      @media screen and (min-width: 1200px) {
-          width: 334px;
-          height: 334px;
-          right: 30px;
-          top: 854px;
-      }
+
+  @media screen and (min-width: 1280px) {
+    width: 334px;
+    height: 334px;
+    left: 30px;
+    top: 1192px;
   }
-  
-    .ellipse-right-bottom {
-  
-      @media screen and (min-width: 768px) {
-          position: absolute;
-          border-radius: 100% 0 0 0;
-          border: 1px solid #212121;
-      }
-  
-      @media screen and (min-width: 1200px) {
-          width: 334px;
-          height: 334px;
-          right: 30px;
-          top: 1834px;
-      }
-    }
-  
-    .ellipse-left-bottom1 {
-  
-      @media screen and (min-width: 768px) {
-          position: absolute;
-          border: 1px solid #212121;
-          background: linear-gradient(rgba(196, 196, 196, 0.03), 
-          rgba(196, 196, 196, 0.03));
-      }
-  
-      @media screen and (min-width: 1200px) {
-          width: 136px;
-          height: 68px;
-          left: 47px;
-          top: 2266px;
-          border-top-left-radius: 68px;
-          border-top-right-radius: 68px;
-      }
-    }
-  
-    .ellipse-left-bottom2 {
-  
-      @media screen and (min-width: 768px) {
-          position: absolute;
-          border: 1px solid #212121;
-      }
-  
-      @media screen and (min-width: 1200px) {
-          width: 216px;
-          height: 108px;
-          left: 7px;
-          top: 2226px;
-          border-top-left-radius: 108px;
-          border-top-right-radius: 108px;
-      }
-   }
-  
-    .ellips-top-left1 {
-  
-      @media screen and (min-width: 768px) {
-          position: absolute;
-          border: 1px solid #212121;
-          background: linear-gradient(rgba(196, 196, 196, 0.03), 
-          rgba(196, 196, 196, 0.03));
-      }
-  
-      @media screen and (min-width: 1200px) {
-          width: 136px;
-          height: 136px;
-          left: 47px;
-          top: 774px;
-          border-radius: 50%;
-      }
-    }
-  
-    .ellips-top-left2 {
-  
-      @media screen and (min-width: 768px) {
-          position: absolute;
-          border-radius: 50%;
-          border: 1px solid #212121;
-      }
-  
-      @media screen and (min-width: 1200px) {
-          width: 216px;
-          height: 216px;
-          left: 7px;
-          top: 734px;
-      }
-    }
-  
-    .ellipse-middle-right1 {
-  
-      @media screen and (min-width: 768px) {
-          border: 1px solid #212121;
-          background: linear-gradient(rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0.03));
-          border-radius: 50%;
-      }
-  
-      @media screen and (min-width: 1200px) {
-          position: absolute;
-          width: 136px;
-          height: 136px;
-          right: 47px;
-          top: 1412px;
-      }
-    }
-  
-    .ellipse-middle-right2 {
-  
-      @media screen and (min-width: 768px) {
-          position: absolute;
-          border-radius: 50%;
-          border: 1px solid #212121;
-      }
-  
-      @media screen and (min-width: 1200px) {
-          width: 216px;
-          height: 216px;
-          right: 7px;
-          top: 1372px;
-      }
-    }
+}
+
+.ellipse-top-right {
+  @media screen and (min-width: 768px) {
+    width: 238px;
+    height: 238px;
+    right: 26px;
+    top: 738px;
+    position: absolute;
+    border-radius: 100% 0 0 0;
+    border: 1px solid #212121;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 334px;
+    height: 334px;
+    right: 30px;
+    top: 434px;
+  }
+}
+
+.ellipse-right-bottom {
+  @media screen and (min-width: 768px) {
+    width: 238px;
+    height: 238px;
+    right: 26px;
+    top: 2496px;
+    position: absolute;
+    border-radius: 100% 0 0 0;
+    border: 1px solid #212121;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 334px;
+    height: 334px;
+    right: 30px;
+    top: 1834px;
+  }
+}
+
+.ellipse-left-bottom1 {
+  @media screen and (min-width: 768px) {
+    width: 80px;
+    height: 40px;
+    left: 46px;
+    top: 2855px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    position: absolute;
+    border: 1px solid #212121;
+    background: linear-gradient(rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0.03));
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+    height: 68px;
+    left: 47px;
+    top: 2200px;
+    border-top-left-radius: 68px;
+    border-top-right-radius: 68px;
+  }
+}
+
+.ellipse-left-bottom2 {
+  @media screen and (min-width: 768px) {
+    width: 126px;
+    height: 63px;
+    left: 23px;
+    top: 2832px;
+    border-top-left-radius: 63px;
+    border-top-right-radius: 63px;
+    position: absolute;
+    border: 1px solid #212121;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 216px;
+    height: 108px;
+    left: 7px;
+    top: 2160px;
+    border-top-left-radius: 108px;
+    border-top-right-radius: 108px;
+  }
+}
+
+.ellips-top-left1 {
+  @media screen and (min-width: 768px) {
+    width: 80px;
+    height: 80px;
+    left: 46px;
+    top: 459px;
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid #212121;
+    background: linear-gradient(rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0.03));
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+    height: 136px;
+    left: 47px;
+    top: 734px;
+  }
+}
+
+.ellips-top-left2 {
+  @media screen and (min-width: 768px) {
+    width: 126px;
+    height: 126px;
+    left: 23px;
+    top: 436px;
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid #212121;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 216px;
+    height: 216px;
+    left: 7px;
+    top: 694px;
+  }
+}
+
+.ellips-top-left2::before {
+
+  @media screen and (min-width: 768px) {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -343px;
+    left: 63px;
+    height: 343px;
+    border: 0.5px solid rgba(33, 33, 33, 1);
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: -554px;
+    left: 108px;
+    height: 554px;
+  }
+}
+
+.ellips-top-left2::after {
+
+  @media screen and (min-width: 768px) {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 126px;
+    left: 63px;
+    height: 2270px;
+    border: 0.5px solid rgba(33, 33, 33, 1);
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 216px;
+    left: 108px;
+    height: 1250px;
+  }
+}
+
+.ellipse-middle-right1 {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    right: 46px;
+    top: 1509px;
+    border: 1px solid #212121;
+    background: linear-gradient(rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0.03));
+    border-radius: 50%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+    height: 136px;
+    right: 47px;
+    top: 1252px;
+  }
+}
+
+.ellipse-middle-right2 {
+  @media screen and (min-width: 768px) {
+    width: 126px;
+    height: 126px;
+    right: 23px;
+    top: 1486px;
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid #212121;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 216px;
+    height: 216px;
+    right: 7px;
+    top: 1212px;
+  }
+}
+
+.ellipse-middle-right2::before {
+
+  @media screen and (min-width: 768px) {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -1550px;
+    left: 63px;
+    height: 1550px;
+    border: 0.5px solid rgba(33, 33, 33, 1);
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: -1250px;
+    left: 108px;
+    height: 1250px;
+  }
+}
+
+.ellipse-middle-right2::after {
+
+  @media screen and (min-width: 768px) {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 126px;
+    left: 63px;
+    height: 1282px;
+    border: 0.5px solid rgba(33, 33, 33, 1);
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 216px;
+    left: 108px;
+    height: 840px;
+  }
+}
