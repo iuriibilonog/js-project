@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import './search-form';
 import './preload';
-import { getDataServer } from './fetchData';
+import { getDataServer, firstQueryDataServer } from './fetchData';
 import './events';
 
 //import './modal-window';
@@ -10,7 +10,8 @@ import './events';
 import './scrollUp';
 
 window.onload = async function () {
-  const data = await getDataServer('', '', '');
+  const countryCode await firstQueryDataServer();
+  const data = await getDataServer('', countryCode, '');
 
   (() => {
     if ('loading' in HTMLImageElement.prototype) {
@@ -22,5 +23,4 @@ window.onload = async function () {
       // <img data-src="image.jpg" class="lazyload" />;
     }
   })();
-
 };
