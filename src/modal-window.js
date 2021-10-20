@@ -6,7 +6,6 @@ import { showModal } from './renderModalWindow';
 import { showPagination } from './pagination';
 import { showPreloader } from './preload';
 
-
 export async function getEventDetails(id) {
   const promisePreload = showPreloader();
   const response = await axios.get(
@@ -53,8 +52,17 @@ document.querySelector('.events__list').addEventListener('click', async e => {
     refs.modal.classList.add('is-hidden');
     console.log(data.name);
     // console.log(refs.eventsNode);
-    const authorData = await getDataServer(data.name);
-    console.log(authorData);
-    await showData(authorData._embedded.events);
+    // const authorData = await getDataServer(data.name);
+    console.log(data.classifications[0].segment.name);
+
+    if (data.classifications[0].segment.name === 'Music') {
+      const authorData = await getDataServer(data.name);
+    } else if (data.classifications[0].segment.name === 'Arts & Theatre') {
+      const authorData = await getDataServer(data.classifications[0].genre.name);
+    } else if (data.classifications[0].segment.name === 'Sports') {
+      const authorData = await getDataServer(data.classifications[0].genre.name);
+    }
+    console.log(data.classifications[0].genre.name);
+    // await showData(authorData._embedded.events);
   });
 });
