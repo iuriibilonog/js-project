@@ -35,6 +35,7 @@ export const showData = data =>
         } else {
           events._embedded.venues[0].address.line1;
         }
+        if (++cur >= data.length) res();
       }, ++counter * 150);
     });
   });
