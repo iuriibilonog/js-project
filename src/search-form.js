@@ -30,14 +30,14 @@ function getCards() {
 
   // getDataServer(searchInput.value);
 
-  const countryCodeCheck = countries.some(
-    item => item.countryCode === searchCountryOption.textContent,
-  );
+  // const countryCodeCheck = countries.some(
+  //   item => item.countryCode === searchCountryOption.textContent,
+  // );
   // console.log(searchCountryOption.textContent)
 
   // if (countryCodeCheck || !searchCountryOption.textContent) {
-  //   // console.log(countryCodeCheck)
-  //   // getDataServer(searchInput.value, searchCountryOption.textContent);
+  //   console.log(countryCodeCheck)
+  //   getDataServer(searchInput.value, searchCountryOption.textContent);
   // }
 
   getDataServer(

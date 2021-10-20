@@ -4,7 +4,6 @@ import sprite from './img/sprite.svg';
 
 export const showData = data =>
   new Promise(res => {
-    console.log('kutgyufrd');
     let cur = 0;
     let counter = 0;
     const markUp = data.map(events => {
