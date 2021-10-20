@@ -8,7 +8,7 @@ function printOptions(data) {
   const markUp = data
     .map(item => {
       const { countryCode, countryName } = item;
-      return `<option value=${countryCode}>${countryName}</option>`;
+      return `<option value='${countryName}'>${countryCode}</option>`;
     })
     .join('');
   optionList.insertAdjacentHTML('beforeend', markUp);
@@ -16,13 +16,29 @@ function printOptions(data) {
 
 printOptions(countries);
 
-document.querySelector('#search-form').addEventListener('input', getData);
+document.querySelector('#search-form').addEventListener('input', debounce(getCards, 500));
 
-function getData() {
+function getCards() {
   const searchInput = document.querySelector('#search-input');
-  const searchCountry = document.querySelector('#search-country');
-  getDataServer(searchInput.value, searchCountry.value);
+  const searchCountry = document.querySelector(`#search-country`);
+  const searchCountryOption = document.querySelector(`#choose-country option[value="${searchCountry.value}"]`);
+  // console.log(searchCountryOption.textContent)
+
+  // getDataServer(searchInput.value);
+
+  const countryCodeCheck = countries.some((item) => item.countryCode === searchCountryOption.textContent)
+  // console.log(searchCountryOption.textContent)
+
+  // if (countryCodeCheck || !searchCountryOption.textContent) {
+  //   // console.log(countryCodeCheck)
+  //   // getDataServer(searchInput.value, searchCountryOption.textContent);
+  // }
+
+  getDataServer(!searchInput.value ? '' : searchInput.value, !searchCountryOption.textContent ? '' : searchCountryOption.textContent);
+
+
   // console.log(searchInput.value)
   // console.log(searchCountry.value)
   // console.error('---')
 }
+
