@@ -7,11 +7,25 @@ export const showData = data =>
     let cur = 0;
     let counter = 0;
     const markUp = data.map(events => {
+      console.log(events);
+
+      let embedded = '';
+      if (!events._embedded) {
+        embedded = events.place.address.line1;
+      }
+
+      if (events._embedded)
+        if (events._embedded.venues[0].name) {
+          embedded = events._embedded.venues[0].name;
+        } else {
+          embedded = events._embedded.venues[0].address.line1;
+        }
+
       const markupOneCard = `<li class="events__item" id = ${events.id} data-modal-open>
         <a href="" class="link events__link">
            <div class="events__image-wrap">
               <picture>
-                 <img loading='lazy' data-src="${events.images[3].url}" alt="" title="" class="events__image lazyload"  />
+                 <img src="${events.images[3].url}" alt="" title="" class="events__image"  />
               </picture>
            </div>
            <div class="events__descr" >
@@ -23,18 +37,14 @@ export const showData = data =>
               <svg class="modal__icon" width="29" height="19">
               <use href="${sprite}#icon-location"></use>
           </svg>
-                 ${events._embedded.venues[0].name}
+                 ${embedded}
                </p>
            </div>
         </a>
      </li>`;
 
       setTimeout(() => {
-        if (events._embedded.venues[0].name) {
-          document.querySelector('.events__list').insertAdjacentHTML('beforeend', markupOneCard);
-        } else {
-          events._embedded.venues[0].address.line1;
-        }
+        document.querySelector('.events__list').insertAdjacentHTML('beforeend', markupOneCard);
         if (++cur >= data.length) res();
       }, ++counter * 150);
     });

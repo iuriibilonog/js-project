@@ -2,6 +2,7 @@ import { getDataServer } from './fetchData';
 import { debounce } from 'debounce';
 import { showData } from './showData';
 import { showPagination } from './pagination';
+import { showPreloader } from './preload';
 
 import countries from './countries.json';
 
@@ -31,7 +32,8 @@ function getCards() {
   // getDataServer(searchInput.value);
 
   // const countryCodeCheck = countries.some(
-  //   item => item.countryCode === searchCountryOption.textContent,
+  //   item => item.countryCode === searchCountryOption?.textContent,
+
   // );
   // console.log(searchCountryOption.textContent)
 
@@ -39,21 +41,21 @@ function getCards() {
   //   console.log(countryCodeCheck)
   //   getDataServer(searchInput.value, searchCountryOption.textContent);
   // }
-
-  getDataServer(
-    !searchInput.value ? '' : searchInput.value,
-    !searchCountryOption.textContent ? '' : searchCountryOption.textContent,
-  ).then(data => {
-    document.querySelector('.events__list').innerHTML = '';
-    showData(data._embedded.events);
-    showPagination(
-      1,
-      +data.page.number + 1,
-      +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
-    );
-  });
-
-  // console.log(searchInput.value)
-  // console.log(searchCountry.value)
-  // console.error('---')
+  const keywordValidator = !searchInput.value ? '' : searchInput.value;
+  const countryValidator = !searchCountryOption?.textContent
+    ? ''
+    : searchCountryOption?.textContent;
+  const promisePreload = showPreloader();
+  getDataServer(keywordValidator, countryValidator)
+    .then(data => {
+      document.querySelector('.events__list').innerHTML = '';
+      showData(data._embedded.events);
+      showPagination(
+        1,
+        +data.page.number + 1,
+        +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
+      );
+      return promisePreload;
+    })
+    .then(preloadNode => preloadNode.remove());
 }

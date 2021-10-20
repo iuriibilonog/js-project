@@ -1,6 +1,7 @@
 import { getDataServer, sendParam } from './fetchData';
 import { showData } from './showData';
 import Notiflix from 'notiflix';
+import { showPreloader } from './preload';
 
 export const showPagination = function (firstPage, currentPage, lastPage) {
   let paginationMarkup = '';
@@ -50,9 +51,10 @@ export const showPagination = function (firstPage, currentPage, lastPage) {
 
 document.querySelector('.pagination__container').addEventListener('click', e => {
   //console.log(e);
-  if (e.target.tagName === 'SPAN' && e.target.textContent != '…')
-    getDataServer(sendParam.keyword, sendParam.countryCode, +e.target.textContent - 1).then(
-      data => {
+  if (e.target.tagName === 'SPAN' && e.target.textContent != '…') {
+    const promisePreload = showPreloader();
+    getDataServer(sendParam.keyword, sendParam.countryCode, +e.target.textContent - 1)
+      .then(data => {
         window.scrollTo({
           top: 0,
           behavior: 'smooth',
@@ -65,8 +67,10 @@ document.querySelector('.pagination__container').addEventListener('click', e => 
           +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
         );
         showData(data._embedded.events);
-      },
-    );
+        return promisePreload;
+      })
+      .then(preloadNode => preloadNode.remove());
+  }
 });
 
 //showPagination(1, 1, 1);
