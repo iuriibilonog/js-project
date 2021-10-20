@@ -1,7 +1,6 @@
 import symbolDevs from './img/symbol-defs.svg';
 
 export const showModal = events => {
-  console.log(events.images[0].url);
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
         <button class="close-button" data-modal-close>
@@ -51,5 +50,5 @@ export const showModal = events => {
         <button type="button" class="button infoauthor-button">MORE FROM THIS AUTHOR</button>
     </div>`;
 
-  document.querySelector('body').insertAdjacentHTML('beforeend', markupOneModal);
+  document.querySelector('#modalNode').innerHTML = markupOneModal;
 };

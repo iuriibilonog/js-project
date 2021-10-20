@@ -23,20 +23,21 @@ document.querySelector('.events__list').addEventListener('click', async e => {
   const id = e.target.closest('.events__item').id;
   const data = await getEventDetails(id);
   showModal(data);
-});
 
-export const modalWindow = () => {
   const refs = {
-    modalNode: document.querySelector('.events__list'),
-    openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
+    backdropNode: document.querySelector('.cards__backdrop'),
   };
 
-  // refs.closeModalBtn.addEventListener('click', toggleModal);
-  // function toggleModal(e) {
-  //   e.preventDefault();
+  refs.closeModalBtn.addEventListener('click', e => {
+    // e.preventDefault();
 
-  //   refs.modal.classList.toggle('is-hidden');
-  // }
-};
+    refs.modal.classList.add('is-hidden');
+  });
+
+  refs.backdropNode.addEventListener('click', e => {
+    // e.preventDefault();
+    if (e.target.dataset.modal === '') refs.modal.classList.add('is-hidden');
+  });
+});
