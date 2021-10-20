@@ -2,12 +2,14 @@ import { getDataServer } from './fetchData';
 import config from './config.json';
 import axios from 'axios';
 import { showModal } from './renderModalWindow';
+import { showPreloader } from './preload';
 
 export async function getEventDetails(id) {
+  const promisePreload = showPreloader();
   const response = await axios.get(
     `http://app.ticketmaster.com/discovery/v2/events/${id}?apikey=${config.key}`,
   );
-
+  promisePreload.then(preloadNode => preloadNode.remove());
   if (response.status >= 200 && response.status < 300) {
     return response.data;
   }
