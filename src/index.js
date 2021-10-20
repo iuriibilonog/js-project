@@ -1,16 +1,20 @@
 import './sass/main.scss';
-import { fetchPictures } from './fetchData';
+import './search-form';
+import { getDataServer } from './fetchData';
 import { showData } from './showData';
 import './events';
+import { modalWindow } from './modal-window';
+import { showPagination } from './pagination';
 
-import './pagination';
-// import './modal-window';
+import './modal-window';
 
 //add scroll to top button
 import './scrollUp';
 
 window.onload = async function () {
-  const data = await fetchPictures();
+  const data = await getDataServer('rock','','3');
   console.log(data);
-  showData(data._embedded.events);
+  await showData(data._embedded.events);
+  modalWindow();
+  showPagination(1, +data.page.number, +data.page.totalPages >= 50 ? 49 : +data.page.totalPages);
 };

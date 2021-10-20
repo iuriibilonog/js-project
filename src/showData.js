@@ -5,6 +5,17 @@ export function showData(data) {
     const markupOneCard = `<li class="events__item">
         <a href="" class="link events__link" id = ${events.id}>
            <div class="events__image-wrap">
+
+// import { modalWindow } from './modal-window';
+
+export const showData = data =>
+  new Promise(res => {
+    let cur = 0;
+    let counter = 0;
+    const markUp = data.map(events => {
+      const markupOneCard = `<li class="events__item" id = ${events.id} data-modal-open>
+        <a href="" class="link events__link">
+           <div class="events__image-wrap" id = ${events.id}>
               <picture>
                  <img src="${events.images[3].url}" alt="" title="" class="events__image lazyload"  />
               </picture>
@@ -23,6 +34,7 @@ export function showData(data) {
            </div>
         </a>
      </li>`;
+
     setTimeout(() => {
       if (events._embedded.venues[0].name) {
         document.querySelector('.events__list').insertAdjacentHTML('beforeend', markupOneCard);
@@ -31,7 +43,10 @@ export function showData(data) {
       }
     }, ++counter * 150);
   });
-  // .join('');
+  
 
-  //   document.querySelector('.events__list').insertAdjacentHTML('beforeend', markUp);
-}
+
+   
+
+    //   document.querySelector('.events__list').insertAdjacentHTML('beforeend', markUp);
+  });
