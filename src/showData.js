@@ -10,9 +10,9 @@ export const showData = data =>
     const markUp = data.map(events => {
       const markupOneCard = `<li class="events__item" id = ${events.id} data-modal-open>
         <a href="" class="link events__link">
-           <div class="events__image-wrap" id = ${events.id}>
+           <div class="events__image-wrap">
               <picture>
-                 <img src="${events.images[3].url}" alt="" title="" class="events__image lazyload"  />
+                 <img loading='lazy' data-src="${events.images[3].url}" alt="" title="" class="events__image lazyload"  />
               </picture>
            </div>
            <div class="events__descr" >
