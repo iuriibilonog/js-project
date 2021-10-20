@@ -8,6 +8,9 @@ import { showPagination } from './pagination';
 
 import './modal-window';
 
+//add scroll to top button
+import './scrollUp';
+
 window.onload = async function () {
   const data = await getDataServer('rock','','3');
   console.log(data);

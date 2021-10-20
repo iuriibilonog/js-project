@@ -42,7 +42,7 @@ export const showModal = events => {
                                 ${events.priceRanges[0].type} ${events.priceRanges[0].min} - ${events.priceRanges[0].max}  ${events.priceRanges[0].currency}
                                
                             </p>
-                            <button class="modal__list-btn">BUY TICKETS</button>
+                             <a href="${events.url}" target="_blank" class="modal__list-btn">BUY TICKETS</a>
                         </li>
                      </ul>
                 </li>
