@@ -18,18 +18,18 @@
 }
 
 .search-input {
-    padding: 10px 30px;
-    font-size: 16px;
-    border-radius: 20px;
-    border: 0px transparent;
-    outline: none;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(3px);
-    // &-internal-autofill-selected {
-    //     background-color: rgb(170, 39, 39);
-    // }
-    &::placeholder {
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 0px transparent;
+  outline: none;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+  // &-internal-autofill-selected {
+  //     background-color: rgb(170, 39, 39);
+  // }
+  &::placeholder {
     color: rgba(255, 255, 255, 0.5);
   }
 }
@@ -66,17 +66,9 @@
 }
 
 .countries-list {
-
   // background-color: rgb(64, 224, 99);
 
   &select {
     color: rgb(145, 34, 34);
   }
 }
-    // background-color: rgb(64, 224, 99);
-    
-    &select {
-        color: rgb(145, 34, 34);
-    }
-};
-

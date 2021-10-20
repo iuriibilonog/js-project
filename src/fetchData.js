@@ -12,6 +12,7 @@ export const sendParam = {
 export async function firstQueryDataServer(keyword, countryCode, page) {
   const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
   console.log(response);
+  return response;
 }
 
 export async function getDataServer(keyword, countryCode, page) {

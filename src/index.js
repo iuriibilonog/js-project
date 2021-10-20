@@ -10,8 +10,9 @@ import './events';
 import './scrollUp';
 
 window.onload = async function () {
-  const countryCode await firstQueryDataServer();
-  const data = await getDataServer('', countryCode, '');
+  const countryCode = await firstQueryDataServer();
+  console.log(countryCode.data.countryCode);
+  const data = await getDataServer('', countryCode.data.countryCode, '');
 
   (() => {
     if ('loading' in HTMLImageElement.prototype) {
