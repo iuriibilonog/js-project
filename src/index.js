@@ -1,5 +1,6 @@
 import './sass/main.scss';
 import './search-form';
+import './preload';
 import { getDataServer } from './fetchData';
 import { showData } from './showData';
 import './events';
@@ -25,7 +26,7 @@ window.onload = async function () {
       // <img data-src="image.jpg" class="lazyload" />;
     }
   })();
-  
+ 
  
   showPagination(
     1,

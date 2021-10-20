@@ -2,6 +2,7 @@ import { getDataServer } from './fetchData';
 import { debounce } from 'debounce';
 import { showData } from './showData';
 import { showPagination } from './pagination';
+import { showPreloader } from './preload';
 
 import countries from './countries.json';
 
@@ -40,7 +41,10 @@ function getCards() {
   //   // getDataServer(searchInput.value, searchCountryOption.textContent);
   // }
   const keywordValidator = !searchInput.value ? '' : searchInput.value;
-  const countryValidator = !searchCountryOption?.textContent ? '' : searchCountryOption?.textContent;
+  const countryValidator = !searchCountryOption?.textContent
+    ? ''
+    : searchCountryOption?.textContent;
+  const promisePreload = showPreloader();
   getDataServer(keywordValidator, countryValidator)
     .then(data => {
       document.querySelector('.events__list').innerHTML = '';
@@ -50,6 +54,7 @@ function getCards() {
         +data.page.number + 1,
         +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
       );
-    });
-
+      return promisePreload;
+    })
+    .then(preloadNode => preloadNode.remove());
 }

@@ -1,5 +1,6 @@
 import { getDataServer, sendParam } from './fetchData';
 import { showData } from './showData';
+import { showPreloader } from './preload';
 
 const checkPagesLimit = function (totalPages) {
   let validLastPage;
@@ -44,9 +45,11 @@ export const showPagination = function (firstPage, currentPage, lastPage) {
 };
 
 document.querySelector('.pagination__container').addEventListener('click', e => {
-  if (e.target.tagName === 'SPAN' && e.target.textContent != '…')
-    getDataServer(sendParam.keyword, sendParam.countryCode, +e.target.textContent - 1).then(
-      data => {
+  //console.log(e);
+  if (e.target.tagName === 'SPAN' && e.target.textContent != '…') {
+    const promisePreload = showPreloader();
+    getDataServer(sendParam.keyword, sendParam.countryCode, +e.target.textContent - 1)
+      .then(data => {
         window.scrollTo({
           top: 0,
           behavior: 'smooth',
@@ -55,6 +58,8 @@ document.querySelector('.pagination__container').addEventListener('click', e => 
         document.querySelector('.events__list').innerHTML = '';
         showPagination(1, +e.target.textContent, checkPagesLimit(data.page.totalPages));
         showData(data._embedded.events);
-      },
-    );
+        return promisePreload;
+      })
+      .then(preloadNode => preloadNode.remove());
+  }
 });
