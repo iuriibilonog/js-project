@@ -1,6 +1,7 @@
 import { getDataServer } from './fetchData';
 import config from './config.json';
 import axios from 'axios';
+import { showModal } from './renderModalWindow';
 
 export async function getEventDetails(id) {
   const response = await axios.get(
@@ -17,6 +18,13 @@ export async function getEventDetails(id) {
   );
 }
 
+document.querySelector('.events__list').addEventListener('click', async e => {
+  e.preventDefault();
+  const id = e.target.closest('.events__item').id;
+  const data = await getEventDetails(id);
+  showModal(data);
+});
+
 export const modalWindow = () => {
   const refs = {
     modalNode: document.querySelector('.events__list'),
@@ -25,17 +33,10 @@ export const modalWindow = () => {
     modal: document.querySelector('[data-modal]'),
   };
 
-  refs.modalNode.addEventListener('click', e => {
-    e.preventDefault();
-    console.log(e.target.closest('.events__item').id);
-    const id = e.target.closest('.events__item').id;
-    getEventDetails(id);
-  });
+  // refs.closeModalBtn.addEventListener('click', toggleModal);
+  // function toggleModal(e) {
+  //   e.preventDefault();
 
-  refs.closeModalBtn.addEventListener('click', toggleModal);
-  function toggleModal(e) {
-    e.preventDefault();
-
-    refs.modal.classList.toggle('is-hidden');
-  }
+  //   refs.modal.classList.toggle('is-hidden');
+  // }
 };
