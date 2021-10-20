@@ -60,7 +60,7 @@ export const showModal = events => {
                 </ul>
             </div>
         </div>
-        <button type="button" class="button infoauthor-button">MORE FROM THIS AUTHOR</button>
+        <button type="button" id = ${events.id} class="button infoauthor-button">MORE FROM THIS AUTHOR</button>
     </div>`;
 
   document.querySelector('#modalNode').innerHTML = markupOneModal;
