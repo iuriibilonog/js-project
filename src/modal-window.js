@@ -8,7 +8,7 @@ export async function getEventDetails(id) {
     `http://app.ticketmaster.com/discovery/v2/events/${id}?apikey=${config.key}`,
   );
 
-  https: if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 200 && response.status < 300) {
     return response.data;
   }
   throw new Error(
