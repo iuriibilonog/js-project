@@ -22,9 +22,19 @@
   border: 1px solid #dc56c5;
   box-sizing: border-box;
   border-radius: 10px 0px;
+  cursor:pointer;
 }
 
 .pagination__simple {
+  display: block;
+  padding-top: 5px;
+  color: white;
+  width: 30px;
+  height: 30px;
+  cursor:pointer;
+}
+
+.pagination__dots {
   display: block;
   padding-top: 5px;
   color: white;
