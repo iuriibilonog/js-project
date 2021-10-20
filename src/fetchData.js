@@ -2,25 +2,20 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import config from './config.json';
 
-const sendParam = {
+export const sendParam = {
   apikey: config.key,
-  keyword: '',
-  countryCode: '',
-  totalPages: '',
-  id: '',
-  page: 1,
 };
 
-console.log(getDataServer('NBA', 'US'));
+//console.log(getDataServer('NBA', 'US'));
 
-export async function getDataServer(
-  keyword = sendParam.keyword,
-  countryCode = sendParam.countryCode,
-  id = sendParam.id,
-) {
-  sendParam.keyword = keyword;
-  sendParam.countryCode = countryCode;
-  sendParam.id = id;
+
+export async function getDataServer(keyword, countryCode, page) {
+  keyword === '' ? (delete sendParam.keyword) : (sendParam.keyword = keyword);
+  countryCode === '' ? (delete sendParam.countryCode) : (sendParam.countryCode = countryCode);
+  page === '' ? (delete sendParam.page) : (sendParam.page = page);
+
+  console.log('SendParam: ', sendParam);
+
   const response = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json', {
     params: sendParam,
   });
