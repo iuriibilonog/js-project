@@ -3,8 +3,7 @@ import { showData } from './showData';
 import Notiflix from 'notiflix';
 
 export const showPagination = function (firstPage, currentPage, lastPage) {
-
-let paginationMarkup = '';
+  let paginationMarkup = '';
 
   if (lastPage <= 7)
     for (let i = 1; i <= lastPage; i++) {
@@ -51,16 +50,22 @@ let paginationMarkup = '';
 
 document.querySelector('.pagination__container').addEventListener('click', e => {
   //console.log(e);
-  if (e.target.tagName ==='SPAN' && e.target.textContent != '…')
-  getDataServer(sendParam.keyword, sendParam.countryCode, +e.target.textContent - 1).then(data => {
-    if (data.page['totalElements'] === 0)
-      Notiflix.Notify.failure('No such data. Please try another parameters.');
-    else {
-      document.querySelector('.events__list').innerHTML = '';
-      showPagination(1, +e.target.textContent, +data.page.totalPages);
-      showData(data._embedded.events);
-    }
-  });
+  if (e.target.tagName === 'SPAN' && e.target.textContent != '…')
+    getDataServer(sendParam.keyword, sendParam.countryCode, +e.target.textContent - 1).then(
+      data => {
+        if (data.page['totalElements'] === 0)
+          Notiflix.Notify.failure('No such data. Please try another parameters.');
+        else {
+          document.querySelector('.events__list').innerHTML = '';
+          showPagination(
+            1,
+            +e.target.textContent,
+            +data.page.totalPages >= 50 ? 49 : +data.page.totalPages,
+          );
+          showData(data._embedded.events);
+        }
+      },
+    );
 });
 
 //showPagination(1, 1, 1);
