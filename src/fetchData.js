@@ -13,34 +13,31 @@ export async function firstQueryDataServer(keyword, countryCode, page) {
     const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
     console.log(response);
     return response;
-  }
-  catch (error) {
-    Notiflix.Notify.failure(
-      'Не удалось определить ваше местоположение',
-    );
+  } catch (error) {
+    // Notiflix.Notify.failure(
+    //   'Не удалось определить ваше местоположение',
+    // );
     return false;
   }
 }
-
 
 export async function getDataServer(keyword, countryCode, page) {
   keyword === '' ? delete sendParam.keyword : (sendParam.keyword = keyword);
   countryCode === '' ? delete sendParam.countryCode : (sendParam.countryCode = countryCode);
 
   page === '' ? delete sendParam.page : (sendParam.page = checkPagesLimit(page));
-  
+
   if (!sendParam.countryCode && !sendParam.keyword) {
     return false;
   }
 
   const response = await axios.get(config.host, { params: sendParam });
 
-
   if (response.data.page.totalElements === 0) {
     document.querySelector('.events__list').innerHTML = '';
     document.querySelector('.pagination__container').innerHTML = '';
     Notiflix.Notify.failure(
-      'К сожалению, по Вашему запросу событий не найдено. Попробуйте изменить запрос.',
+      'К сожалению, в Вашей стране не найдено событий. Измените параметры поиска.',
     );
   }
 
