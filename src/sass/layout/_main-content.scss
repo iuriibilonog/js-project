@@ -202,3 +202,39 @@ body {
   border-radius: 0 100% 0 0;
   border: 1px solid #212121;
 }
+
+.allert-wrapper {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-top: 39px;
+    margin-left: 14px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 58px;
+    margin-left: 27px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 63px;
+  }
+}
+
+.allert-modal {
+  color: white;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.allert-img {
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    height: 300px;
+  }
+}
+
+#clock {
+  font-weight: 700;
+}
