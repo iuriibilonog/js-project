@@ -23,7 +23,6 @@
 }
 
 .events {
-  //   margin-top: -30px; проверить на макете куда будет идти верстка
   position: relative;
   z-index: 30;
 }
@@ -31,7 +30,6 @@
 .events__list {
   display: flex;
   flex-wrap: wrap;
-  // flex-basis: calc(100% - 30px);
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-top: -39px;
