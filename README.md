@@ -29,7 +29,7 @@
 <span align="center">
 
 <a align="center" href="https://github.com/iuriibilonog">![GitHub](https://img.shields.io/badge/-IuriiBilonog-05122A?style=flat&logo=github)</a>
-<a align="center" href="https://github.com/ivan-loboda">![GitHub](https://img.shields.io/badge/-Ivan-Loboda-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Ivan-Loboda">![GitHub](https://img.shields.io/badge/-IvanLoboda-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/Tate-T">![GitHub](https://img.shields.io/badge/-TetianaTarasovych-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/DValeriy">![GitHub](https://img.shields.io/badge/-ValeriyDmytrenko-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/Artowod">![GitHub](https://img.shields.io/badge/-SergiiLukavenko-05122A?style=flat&logo=github)</a>
