@@ -5,7 +5,6 @@ export const showData = data =>
     let cur = 0;
     let counter = 0;
     const markUp = data.map(events => {
-
       let embedded = '';
       if (!events._embedded) {
         embedded = events.place.address.line1;
@@ -29,13 +28,13 @@ export const showData = data =>
 
               <h3 class="events__name">${events.name}</h3>
               <p class="events__date">${events.dates.start.localDate}</p>
-              <p class="events__location">
+              <a class="events__location"  href="">
 
               <svg class="modal__icon" width="29" height="19">
-              <use href="${sprite}#icon-location"></use>
+              <use href="${sprite}#icon-location" style="fill:#fff"></use>
           </svg>
                  ${embedded}
-               </p>
+               </a>
            </div>
         </a>
      </li>`;

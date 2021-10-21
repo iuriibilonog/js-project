@@ -1,8 +1,10 @@
 import { getDataServer } from './fetchData';
 import config from '../config.json';
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import { showModal } from './renderModalWindow';
 import { showPreloader } from './preload';
+import { convertMs, addLeadingZero } from './convertMS';
 
 export async function getEventDetails(id) {
   const preloadNode = await showPreloader();
@@ -25,6 +27,10 @@ document.querySelector('.events__list').addEventListener('click', async e => {
   const id = e.target.closest('.events__item').id;
   const data = await getEventDetails(id);
   showModal(data);
+  updateTime(new Date(data.dates.start.localDate).getTime() - Date.now());
+
+  // console.log(data._embedded.venues[0].location.latitude);
+  // console.log(data._embedded.venues[0].location.longitude);
 
   const refs = {
     closeModalBtn: document.querySelector('[data-modal-close]'),
@@ -54,3 +60,13 @@ document.querySelector('.events__list').addEventListener('click', async e => {
     }
   });
 });
+
+// let time = new Date(2022, 2, 12).getTime() - Date.now();
+
+const updateTime = function (time) {
+  const { days, hours, minutes } = convertMs(time);
+  const timeTo = `Days: ${addLeadingZero(days)} Hours:${addLeadingZero(
+    hours,
+  )}  Minutes: ${addLeadingZero(minutes)}`;
+  Notiflix.Notify.info(`Time to event: ${timeTo}`);
+};

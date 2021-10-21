@@ -38,7 +38,7 @@ export async function getDataServer(keyword, countryCode, page) {
     }, 1000);
     document.querySelector(
       '#allert-modal-window',
-    ).innerHTML = `<div class="allert-wrapper"><p class="allert-modal">Sorry, events not found in selected country! Please, change your search request! Or we show you most popular events in <span id="clock">15</span> seconds.</p>
+    ).innerHTML = `<div class="allert-wrapper"><p class="allert-modal">Sorry, events not found! Please, change your search request! Or we show you most popular events in <span id="clock">15</span> seconds.</p>
 <img class="allert-img" src="https://ouch-cdn2.icons8.com/a_9ZYSU4z_kNg-REiQtNDoybiZ3chJ-9TWnVZIHIfdI/rs:fit:784:523/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMTY5/LzZjZmIwYTdkLTk5/OTgtNGI5OS1hNTgx/LTQzMzIwOThkYTc4/ZS5zdmc.png" width="250" height="150" alt="404">
 </div>`;
     document.querySelector('.pagination__container').innerHTML = '';

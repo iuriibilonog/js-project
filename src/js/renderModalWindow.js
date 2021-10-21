@@ -1,4 +1,5 @@
 import symbolDevs from '../img/symbol-defs.svg';
+import sprite from '../img/sprite.svg';
 
 export const showModal = events => {
   let priceRange = '';
@@ -34,7 +35,9 @@ export const showModal = events => {
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHERE</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events._embedded.venues[0].country.name} <br>${events._embedded.venues[0].name}</p>
+                        <a class="modal__item-text" target="_blank" href="http://maps.google.com/maps?q=${events._embedded.venues[0].location.latitude},${events._embedded.venues[0].location.longitude}&ll=${events._embedded.venues[0].location.latitude},${events._embedded.venues[0].location.longitude}&z=17" id = ${events.id}> <svg class="modal__icon" width="29" height="19">
+              <use href="${sprite}#icon-location" style="fill:#000"></use>
+          </svg> ${events._embedded.venues[0].country.name} <br>${events._embedded.venues[0].name}</a>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHO</h3>
