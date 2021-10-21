@@ -31,7 +31,7 @@
 .events__list {
   display: flex;
   flex-wrap: wrap;
-  //   flex-basis: calc(50% - 14px);
+  // flex-basis: calc(100% - 30px);
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-top: -39px;
