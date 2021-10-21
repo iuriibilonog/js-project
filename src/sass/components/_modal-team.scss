@@ -15,9 +15,6 @@
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms linear;
 }
 
-.modal-team {
-}
-
 .is-hidden-team {
   opacity: 0;
   transform: translateY(300px);
@@ -33,7 +30,7 @@
   left: 50%;
   transform: translate(-50%, 0);
   width: 60vw;
-  height: 24vh;
+  height: 26vh;
   overflow: auto;
   //background-image: radial-gradient(white, yellow, red);
   background-image: radial-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1)),
@@ -50,12 +47,12 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-/*   flex-flow: wrap; */
+  /*   flex-flow: wrap; */
 
   @media screen and (min-width: 1024px) {
     & {
       flex-wrap: nowrap;
-/*       flex-flow: nowrap; */
+      /*       flex-flow: nowrap; */
     }
   }
 }
