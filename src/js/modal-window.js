@@ -1,9 +1,7 @@
 import { getDataServer } from './fetchData';
-import { showData } from './showData';
-import config from './config.json';
+import config from '../config.json';
 import axios from 'axios';
 import { showModal } from './renderModalWindow';
-import { showPagination } from './pagination';
 import { showPreloader } from './preload';
 
 export async function getEventDetails(id) {
@@ -37,23 +35,15 @@ document.querySelector('.events__list').addEventListener('click', async e => {
   };
 
   refs.closeModalBtn.addEventListener('click', e => {
-    // e.preventDefault();
-
     refs.modal.classList.add('is-hidden');
   });
 
   refs.backdropNode.addEventListener('click', e => {
-    // e.preventDefault();
     if (e.target.dataset.modal === '') refs.modal.classList.add('is-hidden');
   });
-
   refs.moreFromAuthorBtn.addEventListener('click', async e => {
     refs.eventsNode.innerHTML = '';
     refs.modal.classList.add('is-hidden');
-    console.log(data.name);
-    // console.log(refs.eventsNode);
-    // const authorData = await getDataServer(data.name);
-    console.log(data.classifications[0].segment.name);
 
     if (data.classifications[0].segment.name === 'Music') {
       const authorData = await getDataServer(data.name);
@@ -62,7 +52,5 @@ document.querySelector('.events__list').addEventListener('click', async e => {
     } else if (data.classifications[0].segment.name === 'Sports') {
       const authorData = await getDataServer(data.classifications[0].genre.name);
     }
-    console.log(data.classifications[0].genre.name);
-    // await showData(authorData._embedded.events);
   });
 });

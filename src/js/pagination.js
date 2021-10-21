@@ -1,4 +1,4 @@
-import config from './config.json';
+import config from '../config.json';
 import { getDataServer, sendParam } from './fetchData';
 import { showPreloader } from './preload';
 
@@ -30,7 +30,6 @@ export const showPagination = function (firstPage, currentPage, lastPage) {
     /*show inner elements in pagination line*/
     const innerElements = paginationVisualElements - 2;
     const centerOfInnerElements = Math.ceil(innerElements / 2);
-    console.log(centerOfInnerElements);
     for (let i = 1; i <= innerElements; i++) {
       if (
         (currentPage > innerElements - 1 && i === 1) ||
