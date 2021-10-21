@@ -29,9 +29,6 @@ document.querySelector('.events__list').addEventListener('click', async e => {
   showModal(data);
   updateTime(new Date(data.dates.start.localDate).getTime() - Date.now());
 
-  // console.log(data._embedded.venues[0].location.latitude);
-  // console.log(data._embedded.venues[0].location.longitude);
-
   const refs = {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
@@ -65,7 +62,7 @@ document.querySelector('.events__list').addEventListener('click', async e => {
 
 const updateTime = function (time) {
   const { days, hours, minutes } = convertMs(time);
-  const timeTo = `Days: ${addLeadingZero(days)} Hours:${addLeadingZero(
+  const timeTo = `Days: ${addLeadingZero(days)} Hours: ${addLeadingZero(
     hours,
   )}  Minutes: ${addLeadingZero(minutes)}`;
   Notiflix.Notify.info(`Time to event: ${timeTo}`);
