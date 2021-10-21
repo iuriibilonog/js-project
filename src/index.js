@@ -4,4 +4,5 @@ import './search-form';
 import './js/preload';
 import './js/modal-window';
 import './js/scrollUp';
-import './js/fetchData';
+import './js/modal-team';
+
