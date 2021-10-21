@@ -8,7 +8,7 @@ export const checkPagesLimit = function (totalPages) {
   return validLastPage;
 };
 
-export const showPagination = function (firstPage, currentPage, lastPage) {
+export const showPagination = function (currentPage, lastPage) {
   let paginationMarkup = '';
   const paginationVisualElements = config.pagination.elements;
 
