@@ -1,13 +1,10 @@
-import sprite from './img/sprite.svg';
-
-// import { modalWindow } from './modal-window';
+import sprite from '../img/sprite.svg';
 
 export const showData = data =>
   new Promise(res => {
     let cur = 0;
     let counter = 0;
     const markUp = data.map(events => {
-      console.log(events);
 
       let embedded = '';
       if (!events._embedded) {

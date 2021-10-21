@@ -1,4 +1,4 @@
-import symbolDevs from './img/symbol-defs.svg';
+import symbolDevs from '../img/symbol-defs.svg';
 
 export const showModal = events => {
   let priceRange = '';

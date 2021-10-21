@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import config from './config.json';
+import config from '../config.json';
 import { showData } from './showData';
 import { showPagination, checkPagesLimit } from './pagination';
 
@@ -8,15 +8,11 @@ export const sendParam = {
   apikey: config.key,
 };
 
-export async function firstQueryDataServer(keyword, countryCode, page) {
+export async function firstQueryDataServer() {
   try {
     const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
-    console.log(response);
     return response;
   } catch (error) {
-    // Notiflix.Notify.failure(
-    //   'Не удалось определить ваше местоположение',
-    // );
     return false;
   }
 }
