@@ -11,12 +11,12 @@
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    width: 768px;
+    width: 760px;
     padding-left: 85px;
     padding-right: 85px;
   }
   @media screen and (min-width: 1280px) {
-    width: 1280px;
+    width: 1260px;
     padding-left: 175px;
     padding-right: 175px;
   }
@@ -31,7 +31,7 @@
 .events__list {
   display: flex;
   flex-wrap: wrap;
-  //   flex-basis: calc(50% - 14px);
+  // flex-basis: calc(100% - 30px);
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-top: -39px;
@@ -167,7 +167,6 @@
   }
 }
 
-
 body {
   position: relative;
   background-color: #0e0e0e;
@@ -184,4 +183,3 @@ body {
   border-radius: 0 100% 0 0;
   border: 1px solid #212121;
 }
-
