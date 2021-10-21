@@ -8,7 +8,6 @@ export const sendParam = {
   apikey: config.key,
 };
 
-//console.log(getDataServer('NBA', 'US'));
 export async function firstQueryDataServer(keyword, countryCode, page) {
   const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
   console.log(response);
@@ -18,18 +17,9 @@ export async function firstQueryDataServer(keyword, countryCode, page) {
 export async function getDataServer(keyword, countryCode, page) {
   keyword === '' ? delete sendParam.keyword : (sendParam.keyword = keyword);
   countryCode === '' ? delete sendParam.countryCode : (sendParam.countryCode = countryCode);
-  page === ''
-    ? delete sendParam.page
-    : page >= 50
-    ? (sendParam.page = 49)
-    : (sendParam.page = page);
+  page === '' ? delete sendParam.page : (sendParam.page = checkPagesLimit(page));
 
-  // console.log('SendParam: ', sendParam);
-
-  const response = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json', {
-    params: sendParam,
-  });
-  // console.log(response)
+  const response = await axios.get(config.host, { params: sendParam });
 
   if (response.data.page.totalElements === 0) {
     document.querySelector('.events__list').innerHTML = '';

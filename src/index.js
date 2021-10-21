@@ -10,9 +10,7 @@ import './modal-window';
 import './scrollUp';
 
 window.onload = async function () {
-
   const countryCode = await firstQueryDataServer();
   console.log(countryCode.data.countryCode);
   const data = await getDataServer('', countryCode.data.countryCode, '');
-
 };
