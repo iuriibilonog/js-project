@@ -30,6 +30,7 @@
   background: linear-gradient(to right, rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0));
   backdrop-filter: blur(30px);
   border-bottom-right-radius: 90%;
+  z-index: 2;
 
   @media screen and (min-width: 768px) {
     top: -40px;
@@ -37,7 +38,7 @@
     height: 151px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 238px;
     height: 201px;
   }
@@ -54,7 +55,7 @@
     width: 138px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     padding-left: 40px;
     padding-top: 40px;
     width: 186px;
