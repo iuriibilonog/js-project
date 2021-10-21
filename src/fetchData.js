@@ -9,17 +9,32 @@ export const sendParam = {
 };
 
 export async function firstQueryDataServer(keyword, countryCode, page) {
-  const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
-  console.log(response);
-  return response;
+  try {
+    const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
+    console.log(response);
+    return response;
+  }
+  catch (error) {
+    Notiflix.Notify.failure(
+      'Не удалось определить ваше местоположение',
+    );
+    return false;
+  }
 }
+
 
 export async function getDataServer(keyword, countryCode, page) {
   keyword === '' ? delete sendParam.keyword : (sendParam.keyword = keyword);
   countryCode === '' ? delete sendParam.countryCode : (sendParam.countryCode = countryCode);
+
   page === '' ? delete sendParam.page : (sendParam.page = checkPagesLimit(page));
+  
+  if (!sendParam.countryCode && !sendParam.keyword) {
+    return false;
+  }
 
   const response = await axios.get(config.host, { params: sendParam });
+
 
   if (response.data.page.totalElements === 0) {
     document.querySelector('.events__list').innerHTML = '';

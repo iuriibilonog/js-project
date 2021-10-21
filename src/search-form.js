@@ -45,7 +45,12 @@ function getCards() {
   const countryValidator = !searchCountryOption?.textContent
     ? ''
     : searchCountryOption?.textContent;
- const promisePreload = showPreloader();
+
+  localStorage.setItem('localCountryName', searchCountry.value);
+  localStorage.setItem('localCountryCode', searchCountryOption.textContent);
+
+  const promisePreload = showPreloader();
+
   getDataServer(keywordValidator, countryValidator)
     .then(data => {
 /*       if (data._embedded) {
