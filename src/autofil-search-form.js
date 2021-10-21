@@ -1,5 +1,5 @@
 import countries from './countries.json';
-import { getDataServer, firstQueryDataServer } from './fetchData';
+import { getDataServer, firstQueryDataServer } from './js/fetchData';
 
 const countryCodeNode = document.querySelector('#search-input');
 const countryNode = document.querySelector('#search-country');

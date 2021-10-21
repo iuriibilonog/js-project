@@ -1,8 +1,8 @@
-import { getDataServer } from './fetchData';
+import { getDataServer } from './js/fetchData';
 import { debounce } from 'debounce';
-import { showData } from './showData';
-import { showPagination } from './pagination';
-import { showPreloader } from './preload';
+import { showData } from './js/showData';
+import { showPagination } from './js/pagination';
+import { showPreloader } from './js/preload';
 
 import countries from './countries.json';
 
@@ -19,7 +19,7 @@ function printOptions(data) {
 
 printOptions(countries);
 
-document.querySelector('#search-form').addEventListener('input', debounce(getCards, 500));
+document.querySelector('#search-form').addEventListener('input', debounce(getCards, 1000));
 
 function getCards() {
   const searchInput = document.querySelector('#search-input');
@@ -53,7 +53,7 @@ function getCards() {
 
   getDataServer(keywordValidator, countryValidator)
     .then(data => {
-/*       if (data._embedded) {
+      /*       if (data._embedded) {
         document.querySelector('.events__list').innerHTML = '';
         showData(data._embedded.events);
         showPagination(
@@ -63,7 +63,7 @@ function getCards() {
         );
         console.log('11111');
       }
- */      return promisePreload;
+ */ return promisePreload;
     })
     .then(preloadNode => preloadNode.remove());
 }

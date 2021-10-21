@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import config from './config.json';
+import config from '../config.json';
 import { showData } from './showData';
 import { showPagination, checkPagesLimit } from './pagination';
 
@@ -8,48 +8,32 @@ export const sendParam = {
   apikey: config.key,
 };
 
-//console.log(getDataServer('NBA', 'US'));
-
-export async function firstQueryDataServer(keyword, countryCode, page) {
+export async function firstQueryDataServer() {
   try {
     const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
-    console.log(response);
     return response;
-  }
-  catch (error) {
-    Notiflix.Notify.failure(
-      'Не удалось определить ваше местоположение',
-    );
+  } catch (error) {
     return false;
   }
 }
 
-
 export async function getDataServer(keyword, countryCode, page) {
   keyword === '' ? delete sendParam.keyword : (sendParam.keyword = keyword);
   countryCode === '' ? delete sendParam.countryCode : (sendParam.countryCode = countryCode);
-  page === ''
-    ? delete sendParam.page
-    : page >= 50
-      ? (sendParam.page = 49)
-      : (sendParam.page = page);
 
-  // console.log('SendParam: ', sendParam);
+  page === '' ? delete sendParam.page : (sendParam.page = checkPagesLimit(page));
 
   if (!sendParam.countryCode && !sendParam.keyword) {
     return false;
   }
 
-  const response = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json', {
-    params: sendParam,
-  });
-  // console.log(response)
+  const response = await axios.get(config.host, { params: sendParam });
 
   if (response.data.page.totalElements === 0) {
     document.querySelector('.events__list').innerHTML = '';
     document.querySelector('.pagination__container').innerHTML = '';
     Notiflix.Notify.failure(
-      'К сожалению, по Вашему запросу событий не найдено. Попробуйте изменить запрос.',
+      'К сожалению, в Вашей стране не найдено событий. Измените параметры поиска.',
     );
   }
 
