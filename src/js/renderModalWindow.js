@@ -31,7 +31,7 @@ export const showModal = events => {
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHEN</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events.dates.start.localDate} <br>${events.dates.start.localTime} (Kyiv/Ukraine)</p>
+                        <p class="modal__item-text" id = ${events.id}>${events.dates.start.localDate} <br>${events.dates.start.localTime} ${events.dates.timezone}</p>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHERE</h3>

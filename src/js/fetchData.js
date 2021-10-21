@@ -45,12 +45,8 @@ export async function getDataServer(keyword, countryCode, page) {
 
     setTimeout(() => {
       clearInterval(id);
-      getDataServer('metal', '', '');
+      getDataServer('', 'US', '');
     }, 15000);
-
-    // Notiflix.Notify.failure(
-    //   'К сожалению, в Вашей стране не найдено событий. Измените параметры поиска.',
-    // );
   }
 
   if (response.status >= 200 && response.status < 300) {
