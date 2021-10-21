@@ -10,9 +10,17 @@ export const sendParam = {
 
 //console.log(getDataServer('NBA', 'US'));
 export async function firstQueryDataServer(keyword, countryCode, page) {
-  const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
-  console.log(response);
-  return response;
+  try {
+    const response = await axios.get(`http://ip-api.com/json/?fields=countryCode`);
+    console.log(response);
+    return response;
+  }
+  catch (error) {
+    Notiflix.Notify.failure(
+      'Не удалось определить ваше местоположение',
+    );
+    return false;
+  }
 }
 
 export async function getDataServer(keyword, countryCode, page) {
@@ -21,10 +29,14 @@ export async function getDataServer(keyword, countryCode, page) {
   page === ''
     ? delete sendParam.page
     : page >= 50
-    ? (sendParam.page = 49)
-    : (sendParam.page = page);
+      ? (sendParam.page = 49)
+      : (sendParam.page = page);
 
   // console.log('SendParam: ', sendParam);
+
+  if (!sendParam.countryCode && !sendParam.keyword) {
+    return false;
+  }
 
   const response = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json', {
     params: sendParam,
