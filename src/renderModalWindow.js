@@ -26,7 +26,7 @@ export const showModal = events => {
                 <ul>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">INFO</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events.info}</p>
+                        <p class="modal__item-text" id = ${events.id}>${events.classifications[0].segment.name} / ${events.classifications[0].genre.name}</p>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHEN</h3>
@@ -46,8 +46,8 @@ export const showModal = events => {
                             <li>
                                 <p class="modal__price-text" id=${events.id}>
                                     <span>
-                                        <svg width="29" height="19.33">
-                                            <use href="./img/symbol-defs.svg#icon-ticket1"></use>
+                                        <svg class="modal__icon-code" width="29" height="19.33">
+                                            <use href="${symbolDevs}#icon-ticket1"></use>
                                         </svg>
                                     </span>
                                     ${priceRange} ${priceRangeMin} - ${priceRangeMax}  ${priceRangeCurrency}
