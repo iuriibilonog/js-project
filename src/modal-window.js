@@ -7,11 +7,11 @@ import { showPagination } from './pagination';
 import { showPreloader } from './preload';
 
 export async function getEventDetails(id) {
-  const preloadNode = await showPreloader();
+  const promisePreload = showPreloader();
   const response = await axios.get(
     `http://app.ticketmaster.com/discovery/v2/events/${id}?apikey=${config.key}`,
   );
-  preloadNode.remove();
+  promisePreload.then(preloadNode => preloadNode.remove());
   if (response.status >= 200 && response.status < 300) {
     return response.data;
   }
