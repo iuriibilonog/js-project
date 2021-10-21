@@ -42,7 +42,6 @@ export async function getDataServer(keyword, countryCode, page) {
       document.querySelector('.events__list').innerHTML = '';
       showData(response.data._embedded.events);
       showPagination(
-        1,
         +response.data.page.number + 1,
         checkPagesLimit(response.data.page.totalPages),
       );
