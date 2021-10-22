@@ -2,6 +2,9 @@
 @import './utils/variables';
 @import './utils/breakpoints';
 
+// BASE
+@import './base/common';
+
 // LAYOUT
 @import './layout/header-hero';
 @import './layout/search-form';
